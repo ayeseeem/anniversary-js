@@ -1,12 +1,13 @@
-# Celebrate a passed date.
+// Celebrate a passed date.
 
+/*
 from datetime import datetime, date, time
 
 from math import floor, log10, pow
 
 def is_celebratable_number(n):
     """Celebrates multiples of powers of tens.
-    
+
     e.g. if >= 10, < 100 days, celebrate 10, 20, 30
     if < 10 days, celebrate each day
     if >= 100, < 1000, celebrate 100, 200, 300
@@ -31,7 +32,7 @@ def is_celebratable_number(n):
     700
     >>> is_celebratable_number(701)
     0
-    
+
     """
 
     actual_log = log10(n)
@@ -83,12 +84,12 @@ def is_month_diff(date1, date2):
     Duplicate dates is no diffence in months:
     >>> is_month_diff(date(2009, 03, 13), date(2009, 03, 13))
     0
-    
+
     One month works:
     >>> is_month_diff(date(2009, 03, 13), date(2009, 04, 13))
     1
-    
-    
+
+
     """
     if (date1.day == date2.day):
         date1_months = date1.year * 12 + date1.month
@@ -154,3 +155,5 @@ if __name__ == "__main__":
 
 #    print is_celebratable_number.__doc__
 #    print is_month_diff.__doc__
+
+*/
