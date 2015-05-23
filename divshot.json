@@ -1,0 +1,6 @@
+{
+  "name": "anniversary",
+  "root": "./site",
+  "clean_urls": true,
+  "exclude": [ ".gitignore", "**/*.bak" ]
+}

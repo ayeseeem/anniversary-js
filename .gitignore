@@ -1,0 +1,15 @@
+# ignore back-ups
+*.bak
+*~
+
+#ignore thumbnails created by windows
+Thumbs.db
+
+# Divshot.com
+.divshot-cache
+
+# NetBeans
+# - always recommended to ignore:
+/nbproject/private/
+# - for this project ignore all
+/nbproject/
