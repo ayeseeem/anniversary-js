@@ -1,6 +1,12 @@
 // Celebrate a passed date.
 
-(function () {
+/*jslint indent : 2 */
+
+/*global $ */
+// 2-liner to stop JSLint complaining "'AYESEEEM' used out of scope" at the end
+var AYESEEEM;
+AYESEEEM = (function (module) {
+  "use strict";
 
   /**
    * Celebrates multiples of powers of tens.
@@ -151,4 +157,13 @@
     }
   }
 
-}());
+  // Module 'anniversary'
+  module.anniversary = {
+    // dummy function for testing that QUnit is set up correctly
+    dummy: function () {
+      return 123;
+    }
+  };
+
+  return module;
+}(AYESEEEM || {}));
