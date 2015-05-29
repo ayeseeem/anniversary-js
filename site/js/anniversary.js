@@ -22,19 +22,14 @@ AYESEEEM = (function (module) {
    * @returns {Number} n if the number is celebratable, 0 otherwise
    */
   function is_celebratable_number(n) {
-    var actual_log = Math.log10(n);
-    //console.log(actual_log);
-
-    var base_log = Math.floor(actual_log);    // still a float
-    //console.log(base_log);
-    var units_to_count_in = Math.pow(10, base_log); // still a float
-    //console.log(units_to_count_in);
+    var actual_log = Math.log10(n),
+      base_log = Math.floor(actual_log),    // still a float
+      units_to_count_in = Math.pow(10, base_log); // still a float
 
     if (Math.floor(n) % Math.floor(units_to_count_in) === 0) {
       return n;
-    } else {
-      return 0;
     }
+    return 0;
   }
 
   /**
@@ -83,17 +78,16 @@ AYESEEEM = (function (module) {
    */
   function is_month_diff(date1, date2) {
     if (date1.getDate() === date2.getDate()) {
-      var date1_months = date1.getYear() * 12 + date1.getMonth();
-      var date2_months = date2.getYear() * 12 + date2.getMonth();
-      var diff = date2_months - date1_months;
+      var date1_months = date1.getYear() * 12 + date1.getMonth(),
+        date2_months = date2.getYear() * 12 + date2.getMonth(),
+        diff = date2_months - date1_months;
       return diff;
-    } else {
-      return 0;
     }
+    return 0;
   }
 
-  var time_to_celebrate = new Date(Date.parse("2009-11-03T08:30"));
-  var now = new Date();
+  var time_to_celebrate = new Date(Date.parse("2009-11-03T08:30")),
+    now = new Date();
 
   console.log("let's celebrate " + time_to_celebrate.toDateString() + " on " + now.toDateString() + " at " + now.toTimeString());
 
@@ -115,8 +109,8 @@ AYESEEEM = (function (module) {
   var elapsed_weeks = elapsed_days / 7;
   console.log("it's been " + Math.floor(elapsed_weeks) + " weeks, " + (elapsed_days % 7) + " days");
 
-  var currency_symbol = '£';
-  var subdivisionOfCurrency = 100;
+  var currency_symbol = '£',
+    subdivisionOfCurrency = 100;
 
   var price_per_pack = 6.00;    // GBP/pack of 20  # 2010-02-16
   price_per_pack = 8.80;        // GBP/pack of 20  # 2014-10-18
