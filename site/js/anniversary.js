@@ -74,15 +74,16 @@ AYESEEEM = (function (module) {
    * <pre>
    * is_month_diff(date(2009, 03, 13), date(2009, 04, 13)) => 1
    * </pre>
+   *
    * @param {type} date1
    * @param {type} date2
    * @returns {Number} the number of months the difference is, or 0 when not whole
    *                   number of months
    */
   function is_month_diff(date1, date2) {
-    if (date1.day === date2.day) {
-      var date1_months = date1.year * 12 + date1.month;
-      var date2_months = date2.year * 12 + date2.month;
+    if (date1.getDate() === date2.getDate()) {
+      var date1_months = date1.getYear() * 12 + date1.getMonth();
+      var date2_months = date2.getYear() * 12 + date2.getMonth();
       var diff = date2_months - date1_months;
       return diff;
     } else {
@@ -147,7 +148,8 @@ AYESEEEM = (function (module) {
 
   // Module 'anniversary'
   module.anniversary = {
-    is_celebratable_number: is_celebratable_number
+    is_celebratable_number: is_celebratable_number,
+    is_month_diff: is_month_diff
   };
 
   return module;
