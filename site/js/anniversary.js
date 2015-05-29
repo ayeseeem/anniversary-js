@@ -113,7 +113,7 @@ AYESEEEM = (function (module) {
   var elapsed_weeks = elapsed_days / 7;
   console.log("it's been " + Math.floor(elapsed_weeks) + " weeks, " + (elapsed_days % 7) + " days");
 
-  var currency_symbol = '£'
+  var currency_symbol = '£';
   var subdivisionOfCurrency = 100;
 
   var price_per_pack = 6.00;    // GBP/pack of 20  # 2010-02-16
