@@ -16,6 +16,7 @@ AYESEEEM = (function (module) {
    * if < 10 days, celebrate each day
    * if >= 100, < 1000, celebrate 100, 200, 300
    * </pre>
+   * and similarly for greater powers.
    *
    * @param {type} n  the number to possibly celebrate
    * @returns {Number} n if the number is celebratable, 0 otherwise
