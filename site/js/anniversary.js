@@ -10,23 +10,11 @@ AYESEEEM = (function (module) {
 
   /**
    * Celebrates multiples of powers of tens.
-   * e.g. if >= 10, < 100 days, celebrate 10, 20, 30
+   * e.g.
+   * <pre>
+   * if >= 10, < 100 days, celebrate 10, 20, 30
    * if < 10 days, celebrate each day
    * if >= 100, < 1000, celebrate 100, 200, 300
-   * <p>
-   * Test spec:
-   * <pre>
-   * is_celebratable_number(6) => 6
-   * is_celebratable_number(7) => 7
-   * is_celebratable_number(8) => 8
-   *
-   * is_celebratable_number(69) => 0
-   * is_celebratable_number(70) => 70
-   * is_celebratable_number(71) => 0
-   *
-   * is_celebratable_number(699) => 0
-   * is_celebratable_number(700) => 700
-   * is_celebratable_number(701) => 0
    * </pre>
    *
    * @param {type} n  the number to possibly celebrate
@@ -159,10 +147,7 @@ AYESEEEM = (function (module) {
 
   // Module 'anniversary'
   module.anniversary = {
-    // dummy function for testing that QUnit is set up correctly
-    dummy: function () {
-      return 123;
-    }
+    is_celebratable_number: is_celebratable_number
   };
 
   return module;
