@@ -101,23 +101,33 @@
 
   console.log("let's celebrate " + time_to_celebrate.toDateString() + " on " + now.toDateString() + " at " + now.toTimeString());
 
-  var elapsed = now - time_to_celebrate;
+  var elapsed = new Date(now.getTime() - time_to_celebrate.getTime());
 
   console.log("Summary:");
   console.log("it's been " + elapsed);
 
-  var elapsed_days = elapsed.days;
+  // HACK: ICM 2015-05-29: Simple hack to get days
+  // Expects a "Date" object created from the millis diff of 2 dates
+  function dateDiffAsDays(dateDiff) {
+    return Math.floor(dateDiff.getTime() / (24 * 60 * 60 * 1000));
+  }
+  // HACK: ICM 2015-05-29: Convert from Python with a hack for days
+  //var elapsed_days = elapsed.days;
+  var elapsed_days = dateDiffAsDays(elapsed);
   console.log("it's been " + elapsed_days + " days");
 
   var elapsed_weeks = elapsed_days / 7;
-  console.log("it's been " + elapsed_weeks + " weeks, " + (elapsed_days % 7) + " days");
+  console.log("it's been " + Math.floor(elapsed_weeks) + " weeks, " + (elapsed_days % 7) + " days");
 
   var currency_symbol = '£'
+  var subdivisionOfCurrency = 100;
+
   var price_per_pack = 6.00;    // GBP/pack of 20  # 2010-02-16
   price_per_pack = 8.80;        // GBP/pack of 20  # 2014-10-18
   var packs_per_week = 9;
   var money_saved_per_week = price_per_pack * packs_per_week;
   var cash = money_saved_per_week * elapsed_weeks;
+  cash = Math.round(cash * subdivisionOfCurrency) / subdivisionOfCurrency;
   console.log('cash: ' + cash);
   console.log("you have saved " + currency_symbol + cash);
 
