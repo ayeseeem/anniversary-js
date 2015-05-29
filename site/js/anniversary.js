@@ -114,6 +114,7 @@ AYESEEEM = (function (module) {
 
   var price_per_pack = 6.00;    // GBP/pack of 20  # 2010-02-16
   price_per_pack = 8.80;        // GBP/pack of 20  # 2014-10-18
+  price_per_pack = 8.96;        // GBP/pack of 20 (based on 200s pack) # 2015-05-29
   var packs_per_week = 9;
   var money_saved_per_week = price_per_pack * packs_per_week;
   var cash = money_saved_per_week * elapsed_weeks;
