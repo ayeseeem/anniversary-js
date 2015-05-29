@@ -24,6 +24,10 @@
     assert.equal(is_celebratable_number(699), 0);
     assert.equal(is_celebratable_number(700), 700);
     assert.equal(is_celebratable_number(701), 0);
+
+    assert.equal(is_celebratable_number(6999), 0);
+    assert.equal(is_celebratable_number(7000), 7000);
+    assert.equal(is_celebratable_number(7001), 0);
   });
 
   // takes 1-indexed months (January = 1)
