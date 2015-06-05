@@ -87,18 +87,18 @@ AYESEEEM = (function (module) {
   }
 
   function calculateSaving(elapsedWeeks) {
-    var currencySymbol = '£',
-      subdivisionOfCurrency = 100;
-
-    var pricePerPack = 6.00;    // GBP/pack of 20  # 2010-02-16
-    pricePerPack = 8.80;        // GBP/pack of 20  # 2014-10-18
-    pricePerPack = 8.96;        // GBP/pack of 20 (based on 200s pack) # 2015-05-29
-    var packsPerWeek = 9;
-    var moneySavedPerWeek = pricePerPack * packsPerWeek;
-    var cash = moneySavedPerWeek * elapsedWeeks;
-    cash = Math.round(cash * subdivisionOfCurrency) / subdivisionOfCurrency;
-    console.log('cash: ' + cash);
-    var saving = currencySymbol + cash;
+    var currency = {
+      symbol: '£',
+      subdivisions: 100
+    },
+      // GBP/pack of 20 - 6.00 @ 2010-02-16
+      // GBP/pack of 20 - 8.80 @ 2014-10-18
+      pricePerPack = 8.96,  // GBP/pack of 20 (based on 200s pack) @ 2015-05-29
+      packsPerWeek = 9,
+      moneySavedPerWeek = pricePerPack * packsPerWeek,
+      cashUnrounded = moneySavedPerWeek * elapsedWeeks,
+      cash = Math.round(cashUnrounded * currency.subdivisions) / currency.subdivisions,
+      saving = currency.symbol + cash;
     console.log("you have saved " + saving);
     return saving;
   }
