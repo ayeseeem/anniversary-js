@@ -131,11 +131,11 @@ AYESEEEM = (function (module) {
   console.log("Celebrations:");
 
   if (is_celebratable_number(elapsed_days)) {
-      console.log("it's been " + elapsed_days + " days");
+    console.log("it's been " + elapsed_days + " days");
   }
 
   if ((elapsed_days % 7) === 0) {
-      console.log("it's been " + elapsed_weeks + "weeks");
+    console.log("it's been " + elapsed_weeks + "weeks");
   }
 
   var is_month_anniversary = is_month_diff(now, time_to_celebrate);
