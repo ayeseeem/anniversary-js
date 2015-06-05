@@ -4,6 +4,9 @@
 (function () {
   "use strict";
 
+  var is_month_diff = AYESEEEM.anniversary.is_month_diff,
+    calculateSaving = AYESEEEM.anniversary.calculateSaving;
+
   QUnit.module("Top level");
 
   QUnit.test("Top-level namespace", function (assert) {
@@ -35,8 +38,6 @@
     return new Date(year, month - 1, day);
   }
 
-  var is_month_diff = AYESEEEM.anniversary.is_month_diff;
-
   QUnit.test("is_month_diff - Test spec 1", function (assert) {
     assert.equal(is_month_diff(date(2009, 1, 13), date(2009, 3, 12)), 0);
     assert.equal(is_month_diff(date(2009, 1, 13), date(2009, 3, 13)), 2);
@@ -60,6 +61,23 @@
 
   QUnit.test("is_month_diff - Test spec 5 - One month works", function (assert) {
     assert.equal(is_month_diff(date(2009, 3, 13), date(2009, 4, 13)), 1);
+  });
+
+  QUnit.module("Cash and Savings");
+
+  QUnit.test("calculateSaving - default symbol", function (assert) {
+    assert.ok(calculateSaving(1)[0] === '£');
+  });
+
+  QUnit.test("calculateSaving - one week default saving", function (assert) {
+    assert.equal(calculateSaving(1), '£80.64');
+  });
+
+  QUnit.test("calculateSaving - multiple weeks default saving", function (assert) {
+    var p = 80.64;
+    assert.equal(calculateSaving(1), '£' + p);
+    assert.equal(calculateSaving(2), '£' + 2 * p);
+    assert.equal(calculateSaving(9), '£' + 9 * p);
   });
 
 }());
