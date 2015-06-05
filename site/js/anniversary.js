@@ -98,7 +98,9 @@ AYESEEEM = (function (module) {
     var cash = money_saved_per_week * elapsed_weeks;
     cash = Math.round(cash * subdivisionOfCurrency) / subdivisionOfCurrency;
     console.log('cash: ' + cash);
-    console.log("you have saved " + currency_symbol + cash);
+    var saving = currency_symbol + cash;
+    console.log("you have saved " + saving);
+    return saving;
   }
 
   var time_to_celebrate = new Date(Date.parse("2009-11-03T08:30")),
@@ -149,7 +151,8 @@ AYESEEEM = (function (module) {
   // Module 'anniversary'
   module.anniversary = {
     is_celebratable_number: is_celebratable_number,
-    is_month_diff: is_month_diff
+    is_month_diff: is_month_diff,
+    calculateSaving: calculateSaving
   };
 
   return module;
