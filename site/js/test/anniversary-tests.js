@@ -4,8 +4,9 @@
 (function () {
   "use strict";
 
-  var is_month_diff = AYESEEEM.anniversary.is_month_diff,
-    calculateSaving = AYESEEEM.anniversary.calculateSaving;
+  var ann = AYESEEEM.anniversary,
+    is_month_diff = ann.is_month_diff,
+    calculateSaving = ann.calculateSaving;
 
   QUnit.module("Top level");
 
