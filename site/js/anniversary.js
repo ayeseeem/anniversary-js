@@ -86,6 +86,21 @@ AYESEEEM = (function (module) {
     return 0;
   }
 
+  function calculateSaving(elapsed_weeks) {
+    var currency_symbol = '£',
+      subdivisionOfCurrency = 100;
+
+    var price_per_pack = 6.00;    // GBP/pack of 20  # 2010-02-16
+    price_per_pack = 8.80;        // GBP/pack of 20  # 2014-10-18
+    price_per_pack = 8.96;        // GBP/pack of 20 (based on 200s pack) # 2015-05-29
+    var packs_per_week = 9;
+    var money_saved_per_week = price_per_pack * packs_per_week;
+    var cash = money_saved_per_week * elapsed_weeks;
+    cash = Math.round(cash * subdivisionOfCurrency) / subdivisionOfCurrency;
+    console.log('cash: ' + cash);
+    console.log("you have saved " + currency_symbol + cash);
+  }
+
   var time_to_celebrate = new Date(Date.parse("2009-11-03T08:30")),
     now = new Date();
 
@@ -109,18 +124,7 @@ AYESEEEM = (function (module) {
   var elapsed_weeks = elapsed_days / 7;
   console.log("it's been " + Math.floor(elapsed_weeks) + " weeks, " + (elapsed_days % 7) + " days");
 
-  var currency_symbol = '£',
-    subdivisionOfCurrency = 100;
-
-  var price_per_pack = 6.00;    // GBP/pack of 20  # 2010-02-16
-  price_per_pack = 8.80;        // GBP/pack of 20  # 2014-10-18
-  price_per_pack = 8.96;        // GBP/pack of 20 (based on 200s pack) # 2015-05-29
-  var packs_per_week = 9;
-  var money_saved_per_week = price_per_pack * packs_per_week;
-  var cash = money_saved_per_week * elapsed_weeks;
-  cash = Math.round(cash * subdivisionOfCurrency) / subdivisionOfCurrency;
-  console.log('cash: ' + cash);
-  console.log("you have saved " + currency_symbol + cash);
+  calculateSaving(elapsed_weeks);
 
   console.log("Celebrations:");
 
