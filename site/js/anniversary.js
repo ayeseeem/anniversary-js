@@ -98,13 +98,14 @@ AYESEEEM = (function (module) {
     },
       // GBP/pack of 20 - 6.00 @ 2010-02-16
       // GBP/pack of 20 - 8.80 @ 2014-10-18
-      pricePerPack = 8.96,  // GBP/pack of 20 (based on 200s pack) @ 2015-05-29
+      // GBP/pack of 20 - 8.96 @ 2015-05-29
+      pricePerPack = 9.23,  // GBP/pack of 20 (based on 100s pack) @ 2015-10-30
       packsPerWeek = 9,
       moneySavedPerWeek = pricePerPack * packsPerWeek,
       cashUnrounded = moneySavedPerWeek * elapsedWeeks,
       cash = Math.round(cashUnrounded * currency.subdivisions) / currency.subdivisions,
       saving = currency.symbol + cash;
-    console.log("you have saved " + saving);
+    console.log("you have saved " + saving + " in today's prices");
     return saving;
   }
 
