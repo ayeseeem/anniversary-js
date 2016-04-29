@@ -71,14 +71,14 @@
   });
 
   QUnit.test("calculateSaving - one week default saving", function (assert) {
-    assert.equal(calculateSaving(1), '£80.64');
+    assert.equal(calculateSaving(1), '£83.07');
   });
 
   QUnit.test("calculateSaving - multiple weeks default saving", function (assert) {
-    var p = 80.64;
-    assert.equal(calculateSaving(1), '£' + p);
-    assert.equal(calculateSaving(2), '£' + 2 * p);
-    assert.equal(calculateSaving(9), '£' + 9 * p);
+    var p = 8307;
+    assert.equal(calculateSaving(1), '£' + (p / 100));
+    assert.equal(calculateSaving(2), '£' + (2 * p / 100));
+    assert.equal(calculateSaving(9), '£' + (9 * p / 100));
   });
 
 }());
