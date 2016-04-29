@@ -13,3 +13,7 @@ Thumbs.db
 /nbproject/private/
 # - for this project ignore all
 /nbproject/
+
+# Eclipse
+.project
+.settings
