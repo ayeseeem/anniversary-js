@@ -26,7 +26,7 @@ AYESEEEM = (function (module) {
    * @param {type} n  the number to possibly celebrate
    * @returns {Number} n if the number is celebratable, 0 otherwise
    */
-  function is_celebratable_number(n) {
+  function isCelebratableNumber(n) {
     var actualLog = Math.log10(n),
       baseLog = Math.floor(actualLog),    // still a float
       unitsToCountIn = Math.pow(10, baseLog); // still a float
@@ -45,9 +45,9 @@ AYESEEEM = (function (module) {
    *
    * Test spec 1:
    * <pre>
-   * is_month_diff(date(2009, 01, 13), date(2009, 03, 12)) => 0
-   * is_month_diff(date(2009, 01, 13), date(2009, 03, 13)) => 2
-   * is_month_diff(date(2009, 01, 13), date(2009, 03, 14)) => 0
+   * isMonthDiff(date(2009, 01, 13), date(2009, 03, 12)) => 0
+   * isMonthDiff(date(2009, 01, 13), date(2009, 03, 13)) => 2
+   * isMonthDiff(date(2009, 01, 13), date(2009, 03, 14)) => 0
    * </pre>
    * This can go wrong when the day is > 28. If it's Jan 30, then there's no
    * day in Feb when it's a whole number of months later. But on Mar 30, it
@@ -55,25 +55,25 @@ AYESEEEM = (function (module) {
    *
    * Test spec 2:
    * <pre>
-   * is_month_diff(date(2009, 01, 30), date(2009, 02, 28)) => 0
-   * is_month_diff(date(2009, 01, 30), date(2009, 03, 30)) => 2
+   * isMonthDiff(date(2009, 01, 30), date(2009, 02, 28)) => 0
+   * isMonthDiff(date(2009, 01, 30), date(2009, 03, 30)) => 2
    * </pre>
    * Doesn't matter which date is earlier:
    * Test spec 3:
    * <pre>
-   * is_month_diff(date(2009, 03, 13), date(2009, 01, 12)) => 0
-   * is_month_diff(date(2009, 03, 13), date(2009, 01, 13)) => -2
-   * is_month_diff(date(2009, 03, 13), date(2009, 01, 14)) => 0
+   * isMonthDiff(date(2009, 03, 13), date(2009, 01, 12)) => 0
+   * isMonthDiff(date(2009, 03, 13), date(2009, 01, 13)) => -2
+   * isMonthDiff(date(2009, 03, 13), date(2009, 01, 14)) => 0
    * </pre>
    * Duplicate dates is no diffence in months:
    * Test spec 4:
    * <pre>
-   * is_month_diff(date(2009, 03, 13), date(2009, 03, 13)) => 0
+   * isMonthDiff(date(2009, 03, 13), date(2009, 03, 13)) => 0
    * </pre>
    * One month works:
    * Test spec 5:
    * <pre>
-   * is_month_diff(date(2009, 03, 13), date(2009, 04, 13)) => 1
+   * isMonthDiff(date(2009, 03, 13), date(2009, 04, 13)) => 1
    * </pre>
    *
    * @param {type} date1
@@ -81,7 +81,7 @@ AYESEEEM = (function (module) {
    * @returns {Number} the number of months the difference is, or 0 when not whole
    *                   number of months
    */
-  function is_month_diff(date1, date2) {
+  function isMonthDiff(date1, date2) {
     if (date1.getDate() === date2.getDate()) {
       var date1Months = date1.getYear() * 12 + date1.getMonth(),
         date2Months = date2.getYear() * 12 + date2.getMonth(),
@@ -136,7 +136,7 @@ AYESEEEM = (function (module) {
 
   console.log('Celebrations:');
 
-  if (is_celebratable_number(elapsedDays)) {
+  if (isCelebratableNumber(elapsedDays)) {
     console.log('it\'s been ' + elapsedDays + ' days');
   }
 
@@ -144,20 +144,20 @@ AYESEEEM = (function (module) {
     console.log('it\'s been ' + elapsedWeeks + 'weeks');
   }
 
-  var is_month_anniversary = is_month_diff(now, timeToCelebrate);
-  if (is_month_anniversary) {
-    if ((is_month_anniversary <= 6) || (is_month_anniversary % 3 === 0)) {
+  var isMonthAnniversary = isMonthDiff(now, timeToCelebrate);
+  if (isMonthAnniversary) {
+    if ((isMonthAnniversary <= 6) || (isMonthAnniversary % 3 === 0)) {
       // TODO: at some point, stop celebrating every month
       // and start going up in, say, 3s.
       // TODO: when m > 12, start saying "N Years {M months}"
-      console.log('It\'s been ' + is_month_anniversary + ' months');
+      console.log('It\'s been ' + isMonthAnniversary + ' months');
     }
   }
 
   // Module 'anniversary'
   module.anniversary = {
-    is_celebratable_number: is_celebratable_number,
-    is_month_diff: is_month_diff,
+    isCelebratableNumber: isCelebratableNumber,
+    isMonthDiff: isMonthDiff,
     calculateSaving: calculateSaving
   };
 
