@@ -27,11 +27,11 @@ AYESEEEM = (function (module) {
    * @returns {Number} n if the number is celebratable, 0 otherwise
    */
   function is_celebratable_number(n) {
-    var actual_log = Math.log10(n),
-      base_log = Math.floor(actual_log),    // still a float
-      units_to_count_in = Math.pow(10, base_log); // still a float
+    var actualLog = Math.log10(n),
+      baseLog = Math.floor(actualLog),    // still a float
+      unitsToCountIn = Math.pow(10, baseLog); // still a float
 
-    if (Math.floor(n) % Math.floor(units_to_count_in) === 0) {
+    if (Math.floor(n) % Math.floor(unitsToCountIn) === 0) {
       return n;
     }
     return 0;
@@ -83,9 +83,9 @@ AYESEEEM = (function (module) {
    */
   function is_month_diff(date1, date2) {
     if (date1.getDate() === date2.getDate()) {
-      var date1_months = date1.getYear() * 12 + date1.getMonth(),
-        date2_months = date2.getYear() * 12 + date2.getMonth(),
-        diff = date2_months - date1_months;
+      var date1Months = date1.getYear() * 12 + date1.getMonth(),
+        date2Months = date2.getYear() * 12 + date2.getMonth(),
+        diff = date2Months - date1Months;
       return diff;
     }
     return 0;
@@ -109,12 +109,12 @@ AYESEEEM = (function (module) {
     return saving;
   }
 
-  var time_to_celebrate = new Date(Date.parse('2009-11-03T08:30')),
+  var timeToCelebrate = new Date(Date.parse('2009-11-03T08:30')),
     now = new Date();
 
-  console.log('let\'s celebrate ' + time_to_celebrate.toDateString() + ' on ' + now.toDateString() + ' at ' + now.toTimeString());
+  console.log('let\'s celebrate ' + timeToCelebrate.toDateString() + ' on ' + now.toDateString() + ' at ' + now.toTimeString());
 
-  var elapsed = new Date(now.getTime() - time_to_celebrate.getTime());
+  var elapsed = new Date(now.getTime() - timeToCelebrate.getTime());
 
   console.log('Summary:');
   console.log('it\'s been ' + elapsed);
@@ -144,7 +144,7 @@ AYESEEEM = (function (module) {
     console.log('it\'s been ' + elapsed_weeks + 'weeks');
   }
 
-  var is_month_anniversary = is_month_diff(now, time_to_celebrate);
+  var is_month_anniversary = is_month_diff(now, timeToCelebrate);
   if (is_month_anniversary) {
     if ((is_month_anniversary <= 6) || (is_month_anniversary % 3 === 0)) {
       // TODO: at some point, stop celebrating every month
