@@ -125,23 +125,23 @@ AYESEEEM = (function (module) {
     return Math.floor(dateDiff.getTime() / (24 * 60 * 60 * 1000));
   }
   // HACK: ICM 2015-05-29: Convert from Python with a hack for days
-  //var elapsed_days = elapsed.days;
-  var elapsed_days = dateDiffAsDays(elapsed);
-  console.log('it\'s been ' + elapsed_days + ' days');
+  //var elapsedDays = elapsed.days;
+  var elapsedDays = dateDiffAsDays(elapsed);
+  console.log('it\'s been ' + elapsedDays + ' days');
 
-  var elapsed_weeks = elapsed_days / 7.0;
-  console.log('it\'s been ' + Math.floor(elapsed_weeks) + ' weeks, ' + (elapsed_days % 7) + ' days');
+  var elapsedWeeks = elapsedDays / 7.0;
+  console.log('it\'s been ' + Math.floor(elapsedWeeks) + ' weeks, ' + (elapsedDays % 7) + ' days');
 
-  calculateSaving(elapsed_weeks);
+  calculateSaving(elapsedWeeks);
 
   console.log('Celebrations:');
 
-  if (is_celebratable_number(elapsed_days)) {
-    console.log('it\'s been ' + elapsed_days + ' days');
+  if (is_celebratable_number(elapsedDays)) {
+    console.log('it\'s been ' + elapsedDays + ' days');
   }
 
-  if ((elapsed_days % 7) === 0) {
-    console.log('it\'s been ' + elapsed_weeks + 'weeks');
+  if ((elapsedDays % 7) === 0) {
+    console.log('it\'s been ' + elapsedWeeks + 'weeks');
   }
 
   var is_month_anniversary = is_month_diff(now, timeToCelebrate);
