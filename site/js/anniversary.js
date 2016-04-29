@@ -11,7 +11,7 @@ Math.log10 = Math.log10 || function(x) {
 // 2-liner to stop JSLint complaining "'AYESEEEM' used out of scope" at the end
 var AYESEEEM;
 AYESEEEM = (function (module) {
-  "use strict";
+  'use strict';
 
   /**
    * Celebrates multiples of powers of tens.
@@ -105,19 +105,19 @@ AYESEEEM = (function (module) {
       cashUnrounded = moneySavedPerWeek * elapsedWeeks,
       cash = Math.round(cashUnrounded * currency.subdivisions) / currency.subdivisions,
       saving = currency.symbol + cash;
-    console.log("you have saved " + saving + " in today's prices");
+    console.log('you have saved ' + saving + ' in today\'s prices');
     return saving;
   }
 
-  var time_to_celebrate = new Date(Date.parse("2009-11-03T08:30")),
+  var time_to_celebrate = new Date(Date.parse('2009-11-03T08:30')),
     now = new Date();
 
-  console.log("let's celebrate " + time_to_celebrate.toDateString() + " on " + now.toDateString() + " at " + now.toTimeString());
+  console.log('let\'s celebrate ' + time_to_celebrate.toDateString() + ' on ' + now.toDateString() + ' at ' + now.toTimeString());
 
   var elapsed = new Date(now.getTime() - time_to_celebrate.getTime());
 
-  console.log("Summary:");
-  console.log("it's been " + elapsed);
+  console.log('Summary:');
+  console.log('it\'s been ' + elapsed);
 
   // HACK: ICM 2015-05-29: Simple hack to get days
   // Expects a "Date" object created from the millis diff of 2 dates
@@ -127,21 +127,21 @@ AYESEEEM = (function (module) {
   // HACK: ICM 2015-05-29: Convert from Python with a hack for days
   //var elapsed_days = elapsed.days;
   var elapsed_days = dateDiffAsDays(elapsed);
-  console.log("it's been " + elapsed_days + " days");
+  console.log('it\'s been ' + elapsed_days + ' days');
 
-  var elapsed_weeks = elapsed_days / 7;
-  console.log("it's been " + Math.floor(elapsed_weeks) + " weeks, " + (elapsed_days % 7) + " days");
+  var elapsed_weeks = elapsed_days / 7.0;
+  console.log('it\'s been ' + Math.floor(elapsed_weeks) + ' weeks, ' + (elapsed_days % 7) + ' days');
 
   calculateSaving(elapsed_weeks);
 
-  console.log("Celebrations:");
+  console.log('Celebrations:');
 
   if (is_celebratable_number(elapsed_days)) {
-    console.log("it's been " + elapsed_days + " days");
+    console.log('it\'s been ' + elapsed_days + ' days');
   }
 
   if ((elapsed_days % 7) === 0) {
-    console.log("it's been " + elapsed_weeks + "weeks");
+    console.log('it\'s been ' + elapsed_weeks + 'weeks');
   }
 
   var is_month_anniversary = is_month_diff(now, time_to_celebrate);
@@ -150,7 +150,7 @@ AYESEEEM = (function (module) {
       // TODO: at some point, stop celebrating every month
       // and start going up in, say, 3s.
       // TODO: when m > 12, start saying "N Years {M months}"
-      console.log("It's been " + is_month_anniversary + " months");
+      console.log('It\'s been ' + is_month_anniversary + ' months');
     }
   }
 
