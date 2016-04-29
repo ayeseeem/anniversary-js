@@ -112,7 +112,8 @@ AYESEEEM = (function (module) {
   var timeToCelebrate = new Date(Date.parse('2009-11-03T08:30')),
     now = new Date();
 
-  console.log('let\'s celebrate ' + timeToCelebrate.toDateString() + ' on ' + now.toDateString() + ' at ' + now.toTimeString());
+  console.log('let\'s celebrate ' + timeToCelebrate.toDateString() +
+      ' on ' + now.toDateString() + ' at ' + now.toTimeString());
 
   var elapsed = new Date(now.getTime() - timeToCelebrate.getTime());
 
