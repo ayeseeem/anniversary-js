@@ -125,12 +125,17 @@ AYESEEEM = (function (module) {
   function dateDiffAsDays(dateDiff) {
     return Math.floor(dateDiff.getTime() / (24 * 60 * 60 * 1000));
   }
-  // HACK: ICM 2015-05-29: Convert from Python with a hack for days
-  //var elapsedDays = elapsed.days;
+
   var elapsedDays = dateDiffAsDays(elapsed);
   console.log('it\'s been ' + elapsedDays + ' days');
 
-  var elapsedWeeks = elapsedDays / 7.0;
+  // HACK: ICM 2016-04-30: Simple hack to get weeks
+  // Expects a "Date" object created from the millis diff of 2 dates
+  function dateDiffAsWeeks(dateDiff) {
+    return dateDiffAsDays(dateDiff) / 7.0;
+  }
+
+  var elapsedWeeks = dateDiffAsWeeks(elapsed);
   console.log('it\'s been ' + Math.floor(elapsedWeeks) + ' weeks, ' + (elapsedDays % 7) + ' days');
 
   calculateSaving(elapsedWeeks);
@@ -159,7 +164,9 @@ AYESEEEM = (function (module) {
   module.anniversary = {
     isCelebratableNumber: isCelebratableNumber,
     isMonthDiff: isMonthDiff,
-    calculateSaving: calculateSaving
+    calculateSaving: calculateSaving,
+    dateDiffAsDays: dateDiffAsDays,
+    dateDiffAsWeeks: dateDiffAsWeeks
   };
 
   return module;

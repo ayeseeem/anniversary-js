@@ -6,7 +6,9 @@
 
   var ann = AYESEEEM.anniversary,
     isMonthDiff = ann.isMonthDiff,
-    calculateSaving = ann.calculateSaving;
+    calculateSaving = ann.calculateSaving,
+    dateDiffAsDays = ann.dateDiffAsDays,
+    dateDiffAsWeeks = ann.dateDiffAsWeeks;
 
   QUnit.module('Anniversary Module');
 
@@ -62,6 +64,39 @@
 
   QUnit.test('isMonthDiff - Test spec 5 - One month works', function (assert) {
     assert.equal(isMonthDiff(date(2009, 3, 13), date(2009, 4, 13)), 1);
+  });
+
+  QUnit.test('dateDiffAsDays - one day', function (assert) {
+    var t1 = new Date(Date.parse('2009-11-03T08:30')),
+      t2 = new Date(Date.parse('2009-11-04T08:30')),
+      tDelta = new Date(t2.getTime() - t1.getTime()),
+      days = dateDiffAsDays(tDelta);
+    assert.equal(days, 1);
+  });
+
+  QUnit.test('dateDiffAsDays - two days', function (assert) {
+    var t1 = new Date(Date.parse('2009-11-03T08:30')),
+      t2 = new Date(Date.parse('2009-11-05T08:30')),
+      tDelta = new Date(t2.getTime() - t1.getTime()),
+      days = dateDiffAsDays(tDelta);
+    assert.equal(days, 2);
+  });
+
+  QUnit.test('dateDiffAsDays - exact year', function (assert) {
+    var t1 = new Date(Date.parse('2009-11-03T08:30')),
+      t2 = new Date(Date.parse('2015-11-03T08:30')),
+      tDelta = new Date(t2.getTime() - t1.getTime()),
+      days = dateDiffAsDays(tDelta);
+    assert.equal(days, (365 * 6) + 1);  // 1 leap year
+    assert.equal((365 * 6) + 1, 2191);
+  });
+
+  QUnit.test('dateDiffAsWeeks - one week', function (assert) {
+    var t1 = new Date(Date.parse('2009-11-03T08:30')),
+      t2 = new Date(Date.parse('2009-11-10T08:30')),
+      tDelta = new Date(t2.getTime() - t1.getTime()),
+      weeks = dateDiffAsWeeks(tDelta);
+    assert.equal(weeks, 1);
   });
 
   QUnit.module('Cash and Savings');
