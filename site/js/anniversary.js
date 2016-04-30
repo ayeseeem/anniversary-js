@@ -109,25 +109,11 @@ AYESEEEM = (function (module) {
     return saving;
   }
 
-  var timeToCelebrate = new Date(Date.parse('2009-11-03T08:30')),
-    now = new Date();
-
-  console.log('let\'s celebrate ' + timeToCelebrate.toDateString() +
-      ' on ' + now.toDateString() + ' at ' + now.toTimeString());
-
-  var elapsed = new Date(now.getTime() - timeToCelebrate.getTime());
-
-  console.log('Summary:');
-  console.log('it\'s been ' + elapsed);
-
   // HACK: ICM 2015-05-29: Simple hack to get days
   // Expects a "Date" object created from the millis diff of 2 dates
   function dateDiffAsDays(dateDiff) {
     return Math.floor(dateDiff.getTime() / (24 * 60 * 60 * 1000));
   }
-
-  var elapsedDays = dateDiffAsDays(elapsed);
-  console.log('it\'s been ' + elapsedDays + ' days');
 
   // HACK: ICM 2016-04-30: Simple hack to get weeks
   // Expects a "Date" object created from the millis diff of 2 dates
@@ -135,30 +121,47 @@ AYESEEEM = (function (module) {
     return dateDiffAsDays(dateDiff) / 7.0;
   }
 
-  var elapsedWeeks = dateDiffAsWeeks(elapsed);
-  console.log('it\'s been ' + Math.floor(elapsedWeeks) + ' weeks, ' + (elapsedDays % 7) + ' days');
+  function celebrate(timeToCelebrate, whenToCelebrate) {
 
-  calculateSaving(elapsedWeeks);
+    console.log('let\'s celebrate ' + timeToCelebrate.toDateString() +
+        ' on ' + whenToCelebrate.toDateString() + ' at ' + whenToCelebrate.toTimeString());
 
-  console.log('Celebrations:');
+    var elapsed = new Date(whenToCelebrate.getTime() - timeToCelebrate.getTime());
 
-  if (isCelebratableNumber(elapsedDays)) {
+    console.log('Summary:');
+    console.log('it\'s been ' + elapsed);
+
+    var elapsedDays = dateDiffAsDays(elapsed);
     console.log('it\'s been ' + elapsedDays + ' days');
-  }
 
-  if ((elapsedDays % 7) === 0) {
-    console.log('it\'s been ' + elapsedWeeks + 'weeks');
-  }
+    var elapsedWeeks = dateDiffAsWeeks(elapsed);
+    console.log('it\'s been ' + Math.floor(elapsedWeeks) + ' weeks, ' + (elapsedDays % 7) + ' days');
 
-  var isMonthAnniversary = isMonthDiff(now, timeToCelebrate);
-  if (isMonthAnniversary) {
-    if ((isMonthAnniversary <= 6) || (isMonthAnniversary % 3 === 0)) {
-      // TODO: at some point, stop celebrating every month
-      // and start going up in, say, 3s.
-      // TODO: when m > 12, start saying "N Years {M months}"
-      console.log('It\'s been ' + isMonthAnniversary + ' months');
+    calculateSaving(elapsedWeeks);
+
+    console.log('Celebrations:');
+
+    if (isCelebratableNumber(elapsedDays)) {
+      console.log('it\'s been ' + elapsedDays + ' days');
+    }
+
+    if ((elapsedDays % 7) === 0) {
+      console.log('it\'s been ' + elapsedWeeks + 'weeks');
+    }
+
+    var isMonthAnniversary = isMonthDiff(whenToCelebrate, timeToCelebrate);
+    if (isMonthAnniversary) {
+      if ((isMonthAnniversary <= 6) || (isMonthAnniversary % 3 === 0)) {
+        // TODO: at some point, stop celebrating every month
+        // and start going up in, say, 3s.
+        // TODO: when m > 12, start saying "N Years {M months}"
+        console.log('It\'s been ' + isMonthAnniversary + ' months');
+      }
     }
   }
+
+  var myQuitDate = new Date(Date.parse('2009-11-03T08:30'));
+  celebrate(myQuitDate, new Date());
 
   // Module 'anniversary'
   module.anniversary = {
