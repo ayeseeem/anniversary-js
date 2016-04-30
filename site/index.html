@@ -6,10 +6,28 @@
 
   <link rel="stylesheet" href="css/anniversary.css" type="text/css"/>
   <script src="js/anniversary.js"></script>
+  <script>
+    function init() {
+      var quitDate = AYESEEEM.anniversary.myQuitDate;
+
+      document.getElementById('jsWarning').style.display = 'none';
+
+      document.getElementById('quitDate').innerHTML = quitDate.toLocaleDateString();
+      document.getElementById('quitTime').innerHTML = quitDate.toLocaleTimeString();
+
+      document.getElementById('saving').innerHTML = AYESEEEM.anniversary.celebrate(quitDate, new Date());
+
+      //alert("Ready!");
+    }
+
+    document.addEventListener('DOMContentLoaded', init, false);    
+  </script>
 
 </head>
 <body>
   <h1>Anniversary</h1>
-  <p>It's been <span>???</span></p>
+  <p id="jsWarning">This page only works if you have JavaScript enabled</p>
+  <p>I gave up smoking on <span id="quitDate">(quit date)</span> at <span id="quitTime">(quit time)</span></p>
+  <p>I have saved <span id="saving">(saving)</span> at today's prices</p>
 </body>
 </html>
