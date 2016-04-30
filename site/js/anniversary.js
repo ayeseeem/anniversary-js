@@ -137,7 +137,7 @@ AYESEEEM = (function (module) {
     var elapsedWeeks = dateDiffAsWeeks(elapsed);
     console.log('it\'s been ' + Math.floor(elapsedWeeks) + ' weeks, ' + (elapsedDays % 7) + ' days');
 
-    calculateSaving(elapsedWeeks);
+    var saving = calculateSaving(elapsedWeeks);
 
     console.log('Celebrations:');
 
@@ -158,6 +158,9 @@ AYESEEEM = (function (module) {
         console.log('It\'s been ' + isMonthAnniversary + ' months');
       }
     }
+
+    // HACK: ICM 2016-04-30: a bit of a hack to get out the info for web page. Needs cleaning up
+    return saving;
   }
 
   var myQuitDate = new Date(Date.parse('2009-11-03T08:30'));
@@ -168,8 +171,10 @@ AYESEEEM = (function (module) {
     isCelebratableNumber: isCelebratableNumber,
     isMonthDiff: isMonthDiff,
     calculateSaving: calculateSaving,
+    celebrate: celebrate,
     dateDiffAsDays: dateDiffAsDays,
-    dateDiffAsWeeks: dateDiffAsWeeks
+    dateDiffAsWeeks: dateDiffAsWeeks,
+    myQuitDate: myQuitDate
   };
 
   return module;
