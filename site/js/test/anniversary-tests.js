@@ -8,7 +8,7 @@
     isMonthDiff = ann.isMonthDiff,
     calculateSaving = ann.calculateSaving;
 
-  QUnit.module('Top level');
+  QUnit.module('Anniversary Module');
 
   QUnit.test('Top-level namespace', function (assert) {
     assert.ok(AYESEEEM !== undefined);
