@@ -1,0 +1,8 @@
+{
+  "firebase": "anniversary",
+  "public": "./site",
+  "ignore": [
+    ".gitignore",
+    "**/*.bak"
+  ]
+}
