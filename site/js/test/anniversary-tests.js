@@ -135,4 +135,13 @@
     assert.equal(calculateSaving(9), '£' + (9 * p / 100));
   });
 
+  QUnit.test('toFixed Examples', function (assert) {
+    var x = 0;
+    assert.equal('' + x.toFixed(2), '0.00');
+  });
+
+  QUnit.test('calculateSaving pads pennies', function (assert) {
+    assert.equal(calculateSaving(0), '£0.00');
+  });
+
 }());

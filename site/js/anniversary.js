@@ -96,6 +96,7 @@ AYESEEEM = (function (module) {
         symbol: '£',
         subdivisions: 100
       },
+      currencyPrecision = Math.floor(Math.log10(100)),
       // GBP/pack of 20 - 6.00 @ 2010-02-16
       // GBP/pack of 20 - 8.80 @ 2014-10-18
       // GBP/pack of 20 - 8.96 @ 2015-05-29
@@ -103,7 +104,7 @@ AYESEEEM = (function (module) {
       packsPerWeek = 9,
       moneySavedPerWeek = pricePerPack * packsPerWeek,
       cashUnrounded = moneySavedPerWeek * elapsedWeeks,
-      cash = Math.round(cashUnrounded * currency.subdivisions) / currency.subdivisions,
+      cash = cashUnrounded.toFixed(currencyPrecision),
       saving = currency.symbol + cash;
     console.log('you have saved ' + saving + ' in today\'s prices');
     return saving;
