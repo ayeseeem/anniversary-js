@@ -74,6 +74,15 @@
     assert.equal(days, 1);
   });
 
+  QUnit.test('dateDiffAsWholeDays returns whole numbers not fractions', function (assert) {
+    var t1 = new Date(Date.parse('2009-11-03T08:30')),
+      t2 = new Date(Date.parse('2009-11-04T20:30')),
+      tDelta = new Date(t2.getTime() - t1.getTime()),
+      days = dateDiffAsWholeDays(tDelta);
+    assert.equal(days, 1);
+    assert.notEqual(days, 1.5);
+  });
+
   QUnit.test('dateDiffAsWholeDays - two days', function (assert) {
     var t1 = new Date(Date.parse('2009-11-03T08:30')),
       t2 = new Date(Date.parse('2009-11-05T08:30')),
@@ -97,6 +106,16 @@
       tDelta = new Date(t2.getTime() - t1.getTime()),
       weeks = dateDiffAsWeeks(tDelta);
     assert.equal(weeks, 1);
+  });
+
+  QUnit.test('dateDiffAsWeeks returns fractions not whole numbers', function (assert) {
+    var t1 = new Date(Date.parse('2009-11-03T08:30')),
+      t2 = new Date(Date.parse('2009-11-06T20:30')),
+      tDelta = new Date(t2.getTime() - t1.getTime()),
+      weeks = dateDiffAsWeeks(tDelta);
+    assert.notEqual(weeks, 0);
+    assert.equal(weeks, 0.5);
+    assert.notEqual(weeks, 1);
   });
 
   QUnit.module('Cash and Savings');
