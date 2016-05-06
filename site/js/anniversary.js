@@ -112,13 +112,19 @@ AYESEEEM = (function (module) {
   // HACK: ICM 2015-05-29: Simple hack to get whole days
   // Expects a "Date" object created from the millis diff of 2 dates
   function dateDiffAsWholeDays(dateDiff) {
-    return Math.floor(dateDiff.getTime() / (24 * 60 * 60 * 1000));
+    return Math.floor(dateDiffAsDays(dateDiff));
+  }
+
+  // HACK: ICM 2015-05-29: Simple hack to get  days
+  // Expects a "Date" object created from the millis diff of 2 dates
+  function dateDiffAsDays(dateDiff) {
+    return dateDiff.getTime() / (24 * 60 * 60 * 1000);
   }
 
   // HACK: ICM 2016-04-30: Simple hack to get whole weeks
   // Expects a "Date" object created from the millis diff of 2 dates
   function dateDiffAsWeeks(dateDiff) {
-    return dateDiffAsWholeDays(dateDiff) / 7.0;
+    return dateDiffAsDays(dateDiff) / 7.0;
   }
 
   function celebrate(timeToCelebrate, whenToCelebrate) {
