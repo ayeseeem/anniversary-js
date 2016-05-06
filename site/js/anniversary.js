@@ -109,16 +109,16 @@ AYESEEEM = (function (module) {
     return saving;
   }
 
-  // HACK: ICM 2015-05-29: Simple hack to get days
+  // HACK: ICM 2015-05-29: Simple hack to get whole days
   // Expects a "Date" object created from the millis diff of 2 dates
-  function dateDiffAsDays(dateDiff) {
+  function dateDiffAsWholeDays(dateDiff) {
     return Math.floor(dateDiff.getTime() / (24 * 60 * 60 * 1000));
   }
 
-  // HACK: ICM 2016-04-30: Simple hack to get weeks
+  // HACK: ICM 2016-04-30: Simple hack to get whole weeks
   // Expects a "Date" object created from the millis diff of 2 dates
   function dateDiffAsWeeks(dateDiff) {
-    return dateDiffAsDays(dateDiff) / 7.0;
+    return dateDiffAsWholeDays(dateDiff) / 7.0;
   }
 
   function celebrate(timeToCelebrate, whenToCelebrate) {
@@ -131,7 +131,7 @@ AYESEEEM = (function (module) {
     console.log('Summary:');
     console.log('it\'s been ' + elapsed);
 
-    var elapsedDays = dateDiffAsDays(elapsed);
+    var elapsedDays = dateDiffAsWholeDays(elapsed);
     console.log('it\'s been ' + elapsedDays + ' days');
 
     var elapsedWeeks = dateDiffAsWeeks(elapsed);
@@ -172,7 +172,7 @@ AYESEEEM = (function (module) {
     isMonthDiff: isMonthDiff,
     calculateSaving: calculateSaving,
     celebrate: celebrate,
-    dateDiffAsDays: dateDiffAsDays,
+    dateDiffAsWholeDays: dateDiffAsWholeDays,
     dateDiffAsWeeks: dateDiffAsWeeks,
     myQuitDate: myQuitDate
   };

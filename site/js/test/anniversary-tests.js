@@ -7,7 +7,7 @@
   var ann = AYESEEEM.anniversary,
     isMonthDiff = ann.isMonthDiff,
     calculateSaving = ann.calculateSaving,
-    dateDiffAsDays = ann.dateDiffAsDays,
+    dateDiffAsWholeDays = ann.dateDiffAsWholeDays,
     dateDiffAsWeeks = ann.dateDiffAsWeeks;
 
   QUnit.module('Anniversary Module');
@@ -66,27 +66,27 @@
     assert.equal(isMonthDiff(date(2009, 3, 13), date(2009, 4, 13)), 1);
   });
 
-  QUnit.test('dateDiffAsDays - one day', function (assert) {
+  QUnit.test('dateDiffAsWholeDays - one day', function (assert) {
     var t1 = new Date(Date.parse('2009-11-03T08:30')),
       t2 = new Date(Date.parse('2009-11-04T08:30')),
       tDelta = new Date(t2.getTime() - t1.getTime()),
-      days = dateDiffAsDays(tDelta);
+      days = dateDiffAsWholeDays(tDelta);
     assert.equal(days, 1);
   });
 
-  QUnit.test('dateDiffAsDays - two days', function (assert) {
+  QUnit.test('dateDiffAsWholeDays - two days', function (assert) {
     var t1 = new Date(Date.parse('2009-11-03T08:30')),
       t2 = new Date(Date.parse('2009-11-05T08:30')),
       tDelta = new Date(t2.getTime() - t1.getTime()),
-      days = dateDiffAsDays(tDelta);
+      days = dateDiffAsWholeDays(tDelta);
     assert.equal(days, 2);
   });
 
-  QUnit.test('dateDiffAsDays - exact year', function (assert) {
+  QUnit.test('dateDiffAsWholeDays - exact year', function (assert) {
     var t1 = new Date(Date.parse('2009-11-03T08:30')),
       t2 = new Date(Date.parse('2015-11-03T08:30')),
       tDelta = new Date(t2.getTime() - t1.getTime()),
-      days = dateDiffAsDays(tDelta);
+      days = dateDiffAsWholeDays(tDelta);
     assert.equal(days, (365 * 6) + 1);  // 1 leap year
     assert.equal((365 * 6) + 1, 2191);
   });
