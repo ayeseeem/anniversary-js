@@ -8,14 +8,21 @@
   <script src="js/anniversary.js"></script>
   <script>
     function init() {
-      var quitDate = AYESEEEM.anniversary.myQuitDate;
+      var quitDate = AYESEEEM.anniversary.myQuitDate,
+        savingElement = document.getElementById('saving');
+
+      function updateSaving() {
+        var saving = AYESEEEM.anniversary.celebrate(quitDate, new Date());
+        savingElement.innerHTML = saving;
+      }
 
       document.getElementById('jsWarning').style.display = 'none';
 
       document.getElementById('quitDate').innerHTML = quitDate.toLocaleDateString();
       document.getElementById('quitTime').innerHTML = quitDate.toLocaleTimeString();
 
-      document.getElementById('saving').innerHTML = AYESEEEM.anniversary.celebrate(quitDate, new Date());
+      updateSaving();
+      setInterval(updateSaving, 5 * 1000);
 
       //alert("Ready!");
     }
