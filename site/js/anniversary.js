@@ -93,9 +93,9 @@ AYESEEEM = (function (module) {
 
   function calculateSaving(elapsedWeeks) {
     var currency = {
-      symbol: '£',
-      subdivisions: 100
-    },
+        symbol: '£',
+        subdivisions: 100
+      },
       // GBP/pack of 20 - 6.00 @ 2010-02-16
       // GBP/pack of 20 - 8.80 @ 2014-10-18
       // GBP/pack of 20 - 8.96 @ 2015-05-29
