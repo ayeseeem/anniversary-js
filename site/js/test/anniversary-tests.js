@@ -8,7 +8,8 @@
     isMonthDiff = ann.isMonthDiff,
     calculateSaving = ann.calculateSaving,
     dateDiffAsWholeDays = ann.dateDiffAsWholeDays,
-    dateDiffAsWeeks = ann.dateDiffAsWeeks;
+    dateDiffAsWeeks = ann.dateDiffAsWeeks,
+    formatCurrency = ann.formatCurrency;
 
   QUnit.module('Anniversary Module');
 
@@ -140,8 +141,19 @@
     assert.equal('' + x.toFixed(2), '0.00');
   });
 
-  QUnit.test('calculateSaving pads pennies', function (assert) {
+  QUnit.test('calculateSaving pads "pennies"', function (assert) {
     assert.equal(calculateSaving(0), '£0.00');
+  });
+
+  QUnit.module('Currency');
+
+  QUnit.test('currency example - units', function (assert) {
+    assert.equal(formatCurrency(0), '£0.00');
+    assert.equal(formatCurrency(1), '£1.00');
+  });
+
+  QUnit.test('currency - "pennies"', function (assert) {
+    assert.equal(formatCurrency(1.23), '£1.23');
   });
 
 }());
