@@ -91,12 +91,21 @@ AYESEEEM = (function (module) {
     return 0;
   }
 
-  function calculateSaving(elapsedWeeks) {
+  // Do this all ourselves while Safari (and mobiles) do not support
+  // toLocaleString with locales/options arguments
+  function formatCurrency(value) {
     var currency = {
         symbol: '£',
         subdivisions: 100
       },
       currencyPrecision = Math.floor(Math.log10(currency.subdivisions)),
+      valueFixedPrecision = value.toFixed(currencyPrecision),
+      formattedValue = currency.symbol + valueFixedPrecision;
+    return formattedValue;
+  }
+
+  function calculateSaving(elapsedWeeks) {
+    var
       // GBP/pack of 20 - 6.00 @ 2010-02-16
       // GBP/pack of 20 - 8.80 @ 2014-10-18
       // GBP/pack of 20 - 8.96 @ 2015-05-29
@@ -104,8 +113,7 @@ AYESEEEM = (function (module) {
       packsPerWeek = 9,
       moneySavedPerWeek = pricePerPack * packsPerWeek,
       cashUnrounded = moneySavedPerWeek * elapsedWeeks,
-      cash = cashUnrounded.toFixed(currencyPrecision),
-      saving = currency.symbol + cash;
+      saving = formatCurrency(cashUnrounded);
     console.log('you have saved ' + saving + ' in today\'s prices');
     return saving;
   }
@@ -181,6 +189,7 @@ AYESEEEM = (function (module) {
     celebrate: celebrate,
     dateDiffAsWholeDays: dateDiffAsWholeDays,
     dateDiffAsWeeks: dateDiffAsWeeks,
+    formatCurrency: formatCurrency,
     myQuitDate: myQuitDate
   };
 
