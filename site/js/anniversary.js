@@ -91,49 +91,6 @@ AYESEEEM = (function (module) {
     return 0;
   }
 
-  function makeCurrency(symbol, subdivisions) {
-    var currency = {
-        getSymbol : function () {
-          return symbol;
-        },
-        getSubdivisions : function () {
-          return subdivisions;
-        },
-        getPrecision : function () {
-          return Math.floor(Math.log10(subdivisions));
-        }
-      };
-
-    function getPrecision() {
-      return Math.floor(Math.log10(subdivisions));
-    }
-
-    // Do this all ourselves while Safari (and mobiles) do not support
-    // toLocaleString with locales/options arguments
-    function format(value) {
-      var valueFixedPrecision = value.toFixed(getPrecision()),
-        formattedValue;
-
-      function insertThousandsSeparator(valueFixedPrecision) {
-        var sep = ',',
-          valueStr = '' + valueFixedPrecision,
-          tailStrLength = '999.'.length + getPrecision(),
-          splitPoint = valueStr.length - tailStrLength;
-
-        if (valueStr.length > tailStrLength) {
-          valueStr = valueStr.substring(0, splitPoint) + sep + valueStr.substring(splitPoint);
-        }
-        return valueStr;
-      }
-
-      formattedValue = symbol + insertThousandsSeparator(valueFixedPrecision);
-      return formattedValue;
-    }
-
-    currency.format = format;
-    return currency;
-  }
-
   function calculateSaving(elapsedWeeks) {
     var
       // GBP/pack of 20 - 6.00 @ 2010-02-16
@@ -143,7 +100,7 @@ AYESEEEM = (function (module) {
       packsPerWeek = 9,
       moneySavedPerWeek = pricePerPack * packsPerWeek,
       cashUnrounded = moneySavedPerWeek * elapsedWeeks,
-      currency = makeCurrency('£', 100),
+      currency = AYESEEEM.currency.makeCurrency('£', 100),
       saving = currency.format(cashUnrounded);
     console.log('you have saved ' + saving + ' in today\'s prices');
     return saving;
@@ -220,7 +177,6 @@ AYESEEEM = (function (module) {
     celebrate: celebrate,
     dateDiffAsWholeDays: dateDiffAsWholeDays,
     dateDiffAsWeeks: dateDiffAsWeeks,
-    makeCurrency: makeCurrency,
     myQuitDate: myQuitDate
   };
 
