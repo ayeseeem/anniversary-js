@@ -100,7 +100,21 @@ AYESEEEM = (function (module) {
       },
       currencyPrecision = Math.floor(Math.log10(currency.subdivisions)),
       valueFixedPrecision = value.toFixed(currencyPrecision),
-      formattedValue = currency.symbol + valueFixedPrecision;
+      formattedValue;
+
+    function insertThousandsSeparator(valueFixedPrecision) {
+      var sep = ',',
+        valueStr = '' + valueFixedPrecision,
+        tailStrLength = '999.'.length + currencyPrecision,
+        splitPoint = valueStr.length - tailStrLength;
+
+      if (valueStr.length > tailStrLength) {
+        valueStr = valueStr.substring(0, splitPoint) + sep + valueStr.substring(splitPoint);
+      }
+      return valueStr;
+    }
+
+    formattedValue = currency.symbol + insertThousandsSeparator(valueFixedPrecision);
     return formattedValue;
   }
 

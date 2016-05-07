@@ -145,15 +145,36 @@
     assert.equal(calculateSaving(0), '£0.00');
   });
 
-  QUnit.module('Currency');
+  QUnit.module('formatCurrency');
 
-  QUnit.test('currency example - units', function (assert) {
+  QUnit.test('example - units', function (assert) {
     assert.equal(formatCurrency(0), '£0.00');
     assert.equal(formatCurrency(1), '£1.00');
   });
 
-  QUnit.test('currency - "pennies"', function (assert) {
+  QUnit.test('"pennies"', function (assert) {
     assert.equal(formatCurrency(1.23), '£1.23');
+  });
+
+  QUnit.test('thousands', function (assert) {
+    assert.equal(formatCurrency(1000), '£1,000.00');
+  });
+
+  QUnit.test('full range', function (assert) {
+    assert.equal(formatCurrency(0), '£0.00');
+    assert.equal(formatCurrency(0.01), '£0.01');
+    assert.equal(formatCurrency(0.99), '£0.99');
+    assert.equal(formatCurrency(1), '£1.00');
+    assert.equal(formatCurrency(10), '£10.00');
+    assert.equal(formatCurrency(100), '£100.00');
+    assert.equal(formatCurrency(1000), '£1,000.00');
+    assert.equal(formatCurrency(10000), '£10,000.00');
+    assert.equal(formatCurrency(100000), '£100,000.00');
+  });
+
+  QUnit.test('millions not yet supported', function (assert) {
+    assert.equal(formatCurrency(1000000), '£1000,000.00');
+    assert.notEqual(formatCurrency(1000000), '£1,000,000.00');
   });
 
 }());
