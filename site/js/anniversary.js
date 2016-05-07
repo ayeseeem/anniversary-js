@@ -103,30 +103,35 @@ AYESEEEM = (function (module) {
           return Math.floor(Math.log10(subdivisions));
         }
       };
-    return currency;
-  }
 
-  // Do this all ourselves while Safari (and mobiles) do not support
-  // toLocaleString with locales/options arguments
-  function formatCurrency(value) {
-    var currency = makeCurrency('£', 100),
-      valueFixedPrecision = value.toFixed(currency.getPrecision()),
-      formattedValue;
-
-    function insertThousandsSeparator(valueFixedPrecision) {
-      var sep = ',',
-        valueStr = '' + valueFixedPrecision,
-        tailStrLength = '999.'.length + currency.getPrecision(),
-        splitPoint = valueStr.length - tailStrLength;
-
-      if (valueStr.length > tailStrLength) {
-        valueStr = valueStr.substring(0, splitPoint) + sep + valueStr.substring(splitPoint);
-      }
-      return valueStr;
+    function getPrecision() {
+      return Math.floor(Math.log10(subdivisions));
     }
 
-    formattedValue = currency.getSymbol() + insertThousandsSeparator(valueFixedPrecision);
-    return formattedValue;
+    // Do this all ourselves while Safari (and mobiles) do not support
+    // toLocaleString with locales/options arguments
+    function format(value) {
+      var valueFixedPrecision = value.toFixed(getPrecision()),
+        formattedValue;
+
+      function insertThousandsSeparator(valueFixedPrecision) {
+        var sep = ',',
+          valueStr = '' + valueFixedPrecision,
+          tailStrLength = '999.'.length + getPrecision(),
+          splitPoint = valueStr.length - tailStrLength;
+
+        if (valueStr.length > tailStrLength) {
+          valueStr = valueStr.substring(0, splitPoint) + sep + valueStr.substring(splitPoint);
+        }
+        return valueStr;
+      }
+
+      formattedValue = symbol + insertThousandsSeparator(valueFixedPrecision);
+      return formattedValue;
+    }
+
+    currency.format = format;
+    return currency;
   }
 
   function calculateSaving(elapsedWeeks) {
@@ -138,7 +143,8 @@ AYESEEEM = (function (module) {
       packsPerWeek = 9,
       moneySavedPerWeek = pricePerPack * packsPerWeek,
       cashUnrounded = moneySavedPerWeek * elapsedWeeks,
-      saving = formatCurrency(cashUnrounded);
+      currency = makeCurrency('£', 100),
+      saving = currency.format(cashUnrounded);
     console.log('you have saved ' + saving + ' in today\'s prices');
     return saving;
   }
@@ -214,7 +220,6 @@ AYESEEEM = (function (module) {
     celebrate: celebrate,
     dateDiffAsWholeDays: dateDiffAsWholeDays,
     dateDiffAsWeeks: dateDiffAsWeeks,
-    formatCurrency: formatCurrency,
     makeCurrency: makeCurrency,
     myQuitDate: myQuitDate
   };
