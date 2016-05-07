@@ -9,7 +9,6 @@
     calculateSaving = ann.calculateSaving,
     dateDiffAsWholeDays = ann.dateDiffAsWholeDays,
     dateDiffAsWeeks = ann.dateDiffAsWeeks,
-    formatCurrency = ann.formatCurrency,
     makeCurrency = ann.makeCurrency;
 
   QUnit.module('Anniversary Module');
@@ -146,39 +145,51 @@
     assert.equal(calculateSaving(0), '£0.00');
   });
 
-  QUnit.module('formatCurrency');
+  QUnit.module('Currency');
 
-  QUnit.test('example - units', function (assert) {
-    assert.equal(formatCurrency(0), '£0.00');
-    assert.equal(formatCurrency(1), '£1.00');
+  var currency = makeCurrency('£', 100);
+
+  QUnit.test('format example - units', function (assert) {
+    assert.equal(currency.format(0), '£0.00');
+    assert.equal(currency.format(1), '£1.00');
   });
 
-  QUnit.test('"pennies"', function (assert) {
-    assert.equal(formatCurrency(1.23), '£1.23');
+  QUnit.test('format "pennies"', function (assert) {
+    assert.equal(currency.format(1.23), '£1.23');
   });
 
-  QUnit.test('thousands', function (assert) {
-    assert.equal(formatCurrency(1000), '£1,000.00');
+  QUnit.test('format thousands', function (assert) {
+    assert.equal(currency.format(1000), '£1,000.00');
   });
 
-  QUnit.test('full range', function (assert) {
-    assert.equal(formatCurrency(0), '£0.00');
-    assert.equal(formatCurrency(0.01), '£0.01');
-    assert.equal(formatCurrency(0.99), '£0.99');
-    assert.equal(formatCurrency(1), '£1.00');
-    assert.equal(formatCurrency(10), '£10.00');
-    assert.equal(formatCurrency(100), '£100.00');
-    assert.equal(formatCurrency(1000), '£1,000.00');
-    assert.equal(formatCurrency(10000), '£10,000.00');
-    assert.equal(formatCurrency(100000), '£100,000.00');
+  QUnit.test('format full range', function (assert) {
+    assert.equal(currency.format(0), '£0.00');
+    assert.equal(currency.format(0.01), '£0.01');
+    assert.equal(currency.format(0.99), '£0.99');
+    assert.equal(currency.format(1), '£1.00');
+    assert.equal(currency.format(10), '£10.00');
+    assert.equal(currency.format(100), '£100.00');
+    assert.equal(currency.format(1000), '£1,000.00');
+    assert.equal(currency.format(10000), '£10,000.00');
+    assert.equal(currency.format(100000), '£100,000.00');
   });
 
-  QUnit.test('millions not yet supported', function (assert) {
-    assert.equal(formatCurrency(1000000), '£1000,000.00');
-    assert.notEqual(formatCurrency(1000000), '£1,000,000.00');
+  QUnit.test('format millions not yet supported', function (assert) {
+    assert.equal(currency.format(1000000), '£1000,000.00');
+    assert.notEqual(currency.format(1000000), '£1,000,000.00');
   });
 
-  QUnit.module('makeCurrency');
+  QUnit.test('format Symbol', function (assert) {
+    assert.equal(makeCurrency('Xyz', 100).format(1.23), 'Xyz1.23');
+  });
+
+  QUnit.test('format "pennies" of other sizes', function (assert) {
+    assert.equal(makeCurrency('X', 1000).format(1.234), 'X1.234');
+  });
+
+  QUnit.test('format thousands with other symbols and "pennies"', function (assert) {
+    assert.equal(makeCurrency('Xyz', 1000).format(1000), 'Xyz1,000.000');
+  });
 
   QUnit.test('symbol', function (assert) {
     assert.equal(makeCurrency('Xyz', 1000).getSymbol(), 'Xyz');
