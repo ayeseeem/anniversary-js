@@ -96,7 +96,7 @@ AYESEEEM = (function (module) {
         symbol: '£',
         subdivisions: 100
       },
-      currencyPrecision = Math.floor(Math.log10(100)),
+      currencyPrecision = Math.floor(Math.log10(currency.subdivisions)),
       // GBP/pack of 20 - 6.00 @ 2010-02-16
       // GBP/pack of 20 - 8.80 @ 2014-10-18
       // GBP/pack of 20 - 8.96 @ 2015-05-29
