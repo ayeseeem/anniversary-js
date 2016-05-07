@@ -91,21 +91,32 @@ AYESEEEM = (function (module) {
     return 0;
   }
 
+  function makeCurrency(symbol, subdivisions) {
+    var currency = {
+        getSymbol : function () {
+          return symbol;
+        },
+        getSubdivisions : function () {
+          return subdivisions;
+        },
+        getPrecision : function () {
+          return Math.floor(Math.log10(subdivisions));
+        }
+      };
+    return currency;
+  }
+
   // Do this all ourselves while Safari (and mobiles) do not support
   // toLocaleString with locales/options arguments
   function formatCurrency(value) {
-    var currency = {
-        symbol: '£',
-        subdivisions: 100
-      },
-      currencyPrecision = Math.floor(Math.log10(currency.subdivisions)),
-      valueFixedPrecision = value.toFixed(currencyPrecision),
+    var currency = makeCurrency('£', 100),
+      valueFixedPrecision = value.toFixed(currency.getPrecision()),
       formattedValue;
 
     function insertThousandsSeparator(valueFixedPrecision) {
       var sep = ',',
         valueStr = '' + valueFixedPrecision,
-        tailStrLength = '999.'.length + currencyPrecision,
+        tailStrLength = '999.'.length + currency.getPrecision(),
         splitPoint = valueStr.length - tailStrLength;
 
       if (valueStr.length > tailStrLength) {
@@ -114,7 +125,7 @@ AYESEEEM = (function (module) {
       return valueStr;
     }
 
-    formattedValue = currency.symbol + insertThousandsSeparator(valueFixedPrecision);
+    formattedValue = currency.getSymbol() + insertThousandsSeparator(valueFixedPrecision);
     return formattedValue;
   }
 
@@ -204,6 +215,7 @@ AYESEEEM = (function (module) {
     dateDiffAsWholeDays: dateDiffAsWholeDays,
     dateDiffAsWeeks: dateDiffAsWeeks,
     formatCurrency: formatCurrency,
+    makeCurrency: makeCurrency,
     myQuitDate: myQuitDate
   };
 

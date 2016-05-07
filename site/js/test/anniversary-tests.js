@@ -9,7 +9,8 @@
     calculateSaving = ann.calculateSaving,
     dateDiffAsWholeDays = ann.dateDiffAsWholeDays,
     dateDiffAsWeeks = ann.dateDiffAsWeeks,
-    formatCurrency = ann.formatCurrency;
+    formatCurrency = ann.formatCurrency,
+    makeCurrency = ann.makeCurrency;
 
   QUnit.module('Anniversary Module');
 
@@ -175,6 +176,21 @@
   QUnit.test('millions not yet supported', function (assert) {
     assert.equal(formatCurrency(1000000), '£1000,000.00');
     assert.notEqual(formatCurrency(1000000), '£1,000,000.00');
+  });
+
+  QUnit.module('makeCurrency');
+
+  QUnit.test('symbol', function (assert) {
+    assert.equal(makeCurrency('Xyz', 1000).getSymbol(), 'Xyz');
+  });
+
+  QUnit.test('subdivisions', function (assert) {
+    assert.equal(makeCurrency('Xyz', 1000).getSubdivisions(), 1000);
+  });
+
+  QUnit.test('precision', function (assert) {
+    assert.equal(makeCurrency('Xyz', 100).getPrecision(), 2);
+    assert.equal(makeCurrency('Xyz', 1000).getPrecision(), 3);
   });
 
 }());
