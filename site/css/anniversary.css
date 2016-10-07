@@ -1,4 +1,7 @@
 body {
-  font: 500 14px/21px 'Helvetica Neue', Helvetica, Arials;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+  font-family: 'Helvetica Neue', Helvetica, Arials;
   padding: 40px;
 }
