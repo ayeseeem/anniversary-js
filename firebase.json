@@ -1,7 +1,9 @@
 {
-  "public": "./site",
-  "ignore": [
-    ".gitignore",
-    "**/*.bak"
-  ]
+  "hosting": {
+    "public": "./site",
+    "ignore": [
+      ".gitignore",
+      "**/*.bak"
+    ]
+  }
 }
