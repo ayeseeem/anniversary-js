@@ -98,7 +98,8 @@ AYESEEEM = (function (module) {
       // GBP/pack of 20 - 8.96 @ 2015-05-29
       // GBP/pack of 20 - 9.23 (based on 100s pack) @ 2015-10-30
       // GBP/pack of 20 - 9.72 (based on 100s pack) @ 2016-10-07
-      pricePerPack = 9.72,
+      // GBP/pack of 20 - 10.33 (based on 100s pack) @ 2017-11-03
+      pricePerPack = 10.33,
       packsPerWeek = 9,
       moneySavedPerWeek = pricePerPack * packsPerWeek,
       cashUnrounded = moneySavedPerWeek * elapsedWeeks,
