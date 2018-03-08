@@ -26,6 +26,7 @@ AYESEEEM = (function (module) {
         }
       };
 
+    // TODO: ICM 2016-11-25: Redundant? duplicated in Currency above?
     function getPrecision() {
       return Math.floor(Math.log10(subdivisions));
     }
