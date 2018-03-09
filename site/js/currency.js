@@ -1,7 +1,5 @@
 // Simplistic currency type.
 
-/*jslint indent : 2 */
-
 // Polyfill for missing in IE
 Math.log10 = Math.log10 || function(x) {
   return Math.log(x) / Math.LN10;
