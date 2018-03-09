@@ -1,4 +1,3 @@
-/*jslint indent : 2 */
 /*global QUnit, AYESEEEM */
 
 (function () {
