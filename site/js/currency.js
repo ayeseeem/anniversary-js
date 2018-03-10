@@ -12,7 +12,7 @@ AYESEEEM = (function (module) {
   'use strict';
 
   function makeCurrency(symbol, subdivisions) {
-    var currency = {
+    const currency = {
         getSymbol: function () {
           return symbol;
         },
@@ -32,14 +32,14 @@ AYESEEEM = (function (module) {
     // Do this all ourselves while Safari (and mobiles) do not support
     // toLocaleString with locales/options arguments
     function format(value) {
-      var valueFixedPrecision = value.toFixed(getPrecision()),
-        formattedValue;
+      const valueFixedPrecision = value.toFixed(getPrecision());
 
       function insertThousandsSeparator(valueFixedPrecision) {
-        var sep = ',',
-          valueStr = '' + valueFixedPrecision,
-          tailStrLength = '999.'.length + getPrecision(),
-          splitPoint = valueStr.length - tailStrLength;
+        let valueStr = '' + valueFixedPrecision;
+
+        const sep = ',';
+        const tailStrLength = '999.'.length + getPrecision();
+        const splitPoint = valueStr.length - tailStrLength;
 
         if (valueStr.length > tailStrLength) {
           valueStr = valueStr.substring(0, splitPoint) + sep + valueStr.substring(splitPoint);
@@ -47,7 +47,7 @@ AYESEEEM = (function (module) {
         return valueStr;
       }
 
-      formattedValue = symbol + insertThousandsSeparator(valueFixedPrecision);
+      const formattedValue = symbol + insertThousandsSeparator(valueFixedPrecision);
       return formattedValue;
     }
 
