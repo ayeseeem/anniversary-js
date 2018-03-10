@@ -3,11 +3,11 @@
 (function () {
   'use strict';
 
-  var ann = AYESEEEM.anniversary,
-    isMonthDiff = ann.isMonthDiff,
-    calculateSaving = ann.calculateSaving,
-    dateDiffAsWholeDays = ann.dateDiffAsWholeDays,
-    dateDiffAsWeeks = ann.dateDiffAsWeeks;
+  const ann = AYESEEEM.anniversary;
+  const isMonthDiff = ann.isMonthDiff;
+  const calculateSaving = ann.calculateSaving;
+  const dateDiffAsWholeDays = ann.dateDiffAsWholeDays;
+  const dateDiffAsWeeks = ann.dateDiffAsWeeks;
 
   QUnit.module('Anniversary Module');
 
@@ -16,7 +16,7 @@
   });
 
   QUnit.test('isCelebratableNumber', function (assert) {
-    var isCelebratableNumber = AYESEEEM.anniversary.isCelebratableNumber;
+    const isCelebratableNumber = AYESEEEM.anniversary.isCelebratableNumber;
 
     assert.equal(isCelebratableNumber(6), 6);
     assert.equal(isCelebratableNumber(7), 7);
@@ -57,7 +57,7 @@
     assert.equal(isMonthDiff(date(2009, 3, 13), date(2009, 1, 14)), 0);
   });
 
-  QUnit.test('isMonthDiff - Test spec 4 - Duplicate dates is no diffence in months', function (assert) {
+  QUnit.test('isMonthDiff - Test spec 4 - Duplicate dates is no difference in months', function (assert) {
     assert.equal(isMonthDiff(date(2009, 3, 13), date(2009, 3, 13)), 0);
   });
 
@@ -65,53 +65,55 @@
     assert.equal(isMonthDiff(date(2009, 3, 13), date(2009, 4, 13)), 1);
   });
 
+  // TODO: ICM 2018-03-09: Use the date() helper method from above?
+
   QUnit.test('dateDiffAsWholeDays - one day', function (assert) {
-    var t1 = new Date(Date.parse('2009-11-03T08:30')),
-      t2 = new Date(Date.parse('2009-11-04T08:30')),
-      tDelta = new Date(t2.getTime() - t1.getTime()),
-      days = dateDiffAsWholeDays(tDelta);
+    const t1 = new Date(Date.parse('2009-11-03T08:30'));
+    const t2 = new Date(Date.parse('2009-11-04T08:30'));
+    const tDelta = new Date(t2.getTime() - t1.getTime());
+    const days = dateDiffAsWholeDays(tDelta);
     assert.equal(days, 1);
   });
 
   QUnit.test('dateDiffAsWholeDays returns whole numbers not fractions', function (assert) {
-    var t1 = new Date(Date.parse('2009-11-03T08:30')),
-      t2 = new Date(Date.parse('2009-11-04T20:30')),
-      tDelta = new Date(t2.getTime() - t1.getTime()),
-      days = dateDiffAsWholeDays(tDelta);
+    const t1 = new Date(Date.parse('2009-11-03T08:30'));
+    const t2 = new Date(Date.parse('2009-11-04T20:30'));
+    const tDelta = new Date(t2.getTime() - t1.getTime());
+    const days = dateDiffAsWholeDays(tDelta);
     assert.equal(days, 1);
     assert.notEqual(days, 1.5);
   });
 
   QUnit.test('dateDiffAsWholeDays - two days', function (assert) {
-    var t1 = new Date(Date.parse('2009-11-03T08:30')),
-      t2 = new Date(Date.parse('2009-11-05T08:30')),
-      tDelta = new Date(t2.getTime() - t1.getTime()),
-      days = dateDiffAsWholeDays(tDelta);
+    const t1 = new Date(Date.parse('2009-11-03T08:30'));
+    const t2 = new Date(Date.parse('2009-11-05T08:30'));
+    const tDelta = new Date(t2.getTime() - t1.getTime());
+    const days = dateDiffAsWholeDays(tDelta);
     assert.equal(days, 2);
   });
 
   QUnit.test('dateDiffAsWholeDays - exact year', function (assert) {
-    var t1 = new Date(Date.parse('2009-11-03T08:30')),
-      t2 = new Date(Date.parse('2015-11-03T08:30')),
-      tDelta = new Date(t2.getTime() - t1.getTime()),
-      days = dateDiffAsWholeDays(tDelta);
+    const t1 = new Date(Date.parse('2009-11-03T08:30'));
+    const t2 = new Date(Date.parse('2015-11-03T08:30'));
+    const tDelta = new Date(t2.getTime() - t1.getTime());
+    const days = dateDiffAsWholeDays(tDelta);
     assert.equal(days, (365 * 6) + 1);  // 1 leap year
     assert.equal((365 * 6) + 1, 2191);
   });
 
   QUnit.test('dateDiffAsWeeks - one week', function (assert) {
-    var t1 = new Date(Date.parse('2009-11-03T08:30')),
-      t2 = new Date(Date.parse('2009-11-10T08:30')),
-      tDelta = new Date(t2.getTime() - t1.getTime()),
-      weeks = dateDiffAsWeeks(tDelta);
+    const t1 = new Date(Date.parse('2009-11-03T08:30'));
+    const t2 = new Date(Date.parse('2009-11-10T08:30'));
+    const tDelta = new Date(t2.getTime() - t1.getTime());
+    const weeks = dateDiffAsWeeks(tDelta);
     assert.equal(weeks, 1);
   });
 
   QUnit.test('dateDiffAsWeeks returns fractions not whole numbers', function (assert) {
-    var t1 = new Date(Date.parse('2009-11-03T08:30')),
-      t2 = new Date(Date.parse('2009-11-06T20:30')),
-      tDelta = new Date(t2.getTime() - t1.getTime()),
-      weeks = dateDiffAsWeeks(tDelta);
+    const t1 = new Date(Date.parse('2009-11-03T08:30'));
+    const t2 = new Date(Date.parse('2009-11-06T20:30'));
+    const tDelta = new Date(t2.getTime() - t1.getTime());
+    const weeks = dateDiffAsWeeks(tDelta);
     assert.notEqual(weeks, 0);
     assert.equal(weeks, 0.5);
     assert.notEqual(weeks, 1);
@@ -123,8 +125,8 @@
     assert.ok(calculateSaving(1)[0] === '£');
   });
 
-  var packPrice = 10.33; // £
-  var packsPerWeek = 9;
+  const packPrice = 10.33; // £
+  const packsPerWeek = 9;
 
   QUnit.test('calculateSaving - one week default saving', function (assert) {
     assert.equal(calculateSaving(1), '£' + (packPrice * packsPerWeek));
@@ -132,8 +134,8 @@
   });
 
   QUnit.test('calculateSaving - multiple weeks default saving', function (assert) {
-    var pencePerWeek = (packPrice * 100 * 9).toFixed(0),
-        p = pencePerWeek;
+    const pencePerWeek = (packPrice * 100 * 9).toFixed(0);
+    const p = pencePerWeek;
     assert.equal(p, 9297);
     assert.equal(calculateSaving(1), '£' + (p / 100));
     assert.equal(calculateSaving(2), '£' + (2 * p / 100));
@@ -141,7 +143,7 @@
   });
 
   QUnit.test('toFixed Examples', function (assert) {
-    var x = 0;
+    const x = 0;
     assert.equal('' + x.toFixed(2), '0.00');
   });
 

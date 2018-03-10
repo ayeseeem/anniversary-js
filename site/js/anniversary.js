@@ -25,9 +25,9 @@ AYESEEEM = (function (module) {
    * @returns {Number} n if the number is celebratable, 0 otherwise
    */
   function isCelebratableNumber(n) {
-    var actualLog = Math.log10(n),
-      baseLog = Math.floor(actualLog),    // still a float
-      unitsToCountIn = Math.pow(10, baseLog); // still a float
+    const actualLog = Math.log10(n);
+    const baseLog = Math.floor(actualLog);    // still a float
+    const unitsToCountIn = Math.pow(10, baseLog); // still a float
 
     if (Math.floor(n) % Math.floor(unitsToCountIn) === 0) {
       return n;
@@ -81,28 +81,27 @@ AYESEEEM = (function (module) {
    */
   function isMonthDiff(date1, date2) {
     if (date1.getDate() === date2.getDate()) {
-      var date1Months = date1.getYear() * 12 + date1.getMonth(),
-        date2Months = date2.getYear() * 12 + date2.getMonth(),
-        diff = date2Months - date1Months;
+      const date1Months = date1.getYear() * 12 + date1.getMonth();
+      const date2Months = date2.getYear() * 12 + date2.getMonth();
+      const diff = date2Months - date1Months;
       return diff;
     }
     return 0;
   }
 
   function calculateSaving(elapsedWeeks) {
-    var
-      // GBP/pack of 20 - 6.00 @ 2010-02-16
-      // GBP/pack of 20 - 8.80 @ 2014-10-18
-      // GBP/pack of 20 - 8.96 @ 2015-05-29
-      // GBP/pack of 20 - 9.23 (based on 100s pack) @ 2015-10-30
-      // GBP/pack of 20 - 9.72 (based on 100s pack) @ 2016-10-07
-      // GBP/pack of 20 - 10.33 (based on 100s pack) @ 2017-11-03
-      pricePerPack = 10.33,
-      packsPerWeek = 9,
-      moneySavedPerWeek = pricePerPack * packsPerWeek,
-      cashUnrounded = moneySavedPerWeek * elapsedWeeks,
-      currency = AYESEEEM.currency.makeCurrency('£', 100),
-      saving = currency.format(cashUnrounded);
+    // GBP/pack of 20 - 6.00 @ 2010-02-16
+    // GBP/pack of 20 - 8.80 @ 2014-10-18
+    // GBP/pack of 20 - 8.96 @ 2015-05-29
+    // GBP/pack of 20 - 9.23 (based on 100s pack) @ 2015-10-30
+    // GBP/pack of 20 - 9.72 (based on 100s pack) @ 2016-10-07
+    // GBP/pack of 20 - 10.33 (based on 100s pack) @ 2017-11-03
+    const pricePerPack = 10.33;
+    const packsPerWeek = 9;
+    const moneySavedPerWeek = pricePerPack * packsPerWeek;
+    const cashUnrounded = moneySavedPerWeek * elapsedWeeks;
+    const currency = AYESEEEM.currency.makeCurrency('£', 100);
+    const saving = currency.format(cashUnrounded);
     console.log('you have saved ' + saving + ' in today\'s prices');
     return saving;
   }
@@ -130,18 +129,18 @@ AYESEEEM = (function (module) {
     console.log('let\'s celebrate ' + timeToCelebrate.toDateString() +
         ' on ' + whenToCelebrate.toDateString() + ' at ' + whenToCelebrate.toTimeString());
 
-    var elapsed = new Date(whenToCelebrate.getTime() - timeToCelebrate.getTime());
+    const elapsed = new Date(whenToCelebrate.getTime() - timeToCelebrate.getTime());
 
     console.log('Summary:');
     console.log('it\'s been ' + elapsed);
 
-    var elapsedDays = dateDiffAsWholeDays(elapsed);
+    const elapsedDays = dateDiffAsWholeDays(elapsed);
     console.log('it\'s been ' + elapsedDays + ' days');
 
-    var elapsedWeeks = dateDiffAsWeeks(elapsed);
+    const elapsedWeeks = dateDiffAsWeeks(elapsed);
     console.log('it\'s been ' + Math.floor(elapsedWeeks) + ' weeks, ' + (elapsedDays % 7) + ' days');
 
-    var saving = calculateSaving(elapsedWeeks);
+    const saving = calculateSaving(elapsedWeeks);
 
     console.log('Celebrations:');
 
@@ -153,7 +152,7 @@ AYESEEEM = (function (module) {
       console.log('it\'s been ' + elapsedWeeks + 'weeks');
     }
 
-    var isMonthAnniversary = isMonthDiff(whenToCelebrate, timeToCelebrate);
+    const isMonthAnniversary = isMonthDiff(whenToCelebrate, timeToCelebrate);
     if (isMonthAnniversary) {
       if ((isMonthAnniversary <= 6) || (isMonthAnniversary % 3 === 0)) {
         // TODO: at some point, stop celebrating every month
@@ -167,7 +166,7 @@ AYESEEEM = (function (module) {
     return saving;
   }
 
-  var myQuitDate = new Date(Date.parse('2009-11-03T08:30'));
+  const myQuitDate = new Date(Date.parse('2009-11-03T08:30'));
   celebrate(myQuitDate, new Date());
 
   // Module 'anniversary'

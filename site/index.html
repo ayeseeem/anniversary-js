@@ -11,11 +11,11 @@
   <script src="js/anniversary.js"></script>
   <script>
     function init() {
-      var quitDate = AYESEEEM.anniversary.myQuitDate,
-        savingElement = document.getElementById('saving');
+      const quitDate = AYESEEEM.anniversary.myQuitDate;
+      const savingElement = document.getElementById('saving');
 
       function updateSaving() {
-        var saving = AYESEEEM.anniversary.celebrate(quitDate, new Date());
+        const saving = AYESEEEM.anniversary.celebrate(quitDate, new Date());
         savingElement.innerHTML = saving;
       }
 

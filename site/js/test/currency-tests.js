@@ -3,12 +3,12 @@
 (function () {
   'use strict';
 
-  var cur = AYESEEEM.currency,
-    makeCurrency = cur.makeCurrency;
+  const cur = AYESEEEM.currency;
+  const makeCurrency = cur.makeCurrency;
 
   QUnit.module('Currency Module');
 
-  var currency = makeCurrency('£', 100);
+  const currency = makeCurrency('£', 100);
 
   QUnit.test('format example - units', function (assert) {
     assert.equal(currency.format(0), '£0.00');
