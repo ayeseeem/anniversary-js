@@ -13,13 +13,13 @@ AYESEEEM = (function (module) {
 
   function makeCurrency(symbol, subdivisions) {
     var currency = {
-        getSymbol : function () {
+        getSymbol: function () {
           return symbol;
         },
-        getSubdivisions : function () {
+        getSubdivisions: function () {
           return subdivisions;
         },
-        getPrecision : function () {
+        getPrecision: function () {
           return Math.floor(Math.log10(subdivisions));
         }
       };
