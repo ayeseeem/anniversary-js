@@ -8,6 +8,11 @@
 #ignore thumbnails created by windows
 Thumbs.db
 
+## Firebase
+##
+## Ignore as little as possible, for safety: ignore cache:
+/.firebase/*.cache
+
 # NetBeans
 # - always recommended to ignore:
 /nbproject/private/
