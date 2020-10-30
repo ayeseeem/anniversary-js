@@ -98,7 +98,8 @@ AYESEEEM = (function (module) {
     // GBP/pack of 20 - 10.33 (based on 100s pack) @ 2017-11-03
     // GBP/pack of 20 - 11.33 (based on 100s pack, Tesco online) @ 2018-11-02
     // GBP/pack of 20 - 12.00 (based on 100s pack, Waitrose online) @ 2019-11-02
-    const pricePerPack = 12.01; // TODO: ICM 2020-10-30: Restore to 12.00 when formatting is fixed
+    // GBP/pack of 20 - 12.92 (based on 100s pack, Waitrose online) @ 2020-10-30
+    const pricePerPack = 12.92;
     const packsPerWeek = 9;
     const moneySavedPerWeek = pricePerPack * packsPerWeek;
     const cashUnrounded = moneySavedPerWeek * elapsedWeeks;
