@@ -99,7 +99,8 @@ AYESEEEM = (function (module) {
     // GBP/pack of 20 - 11.33 (based on 100s pack, Tesco online) @ 2018-11-02
     // GBP/pack of 20 - 12.00 (based on 100s pack, Waitrose online) @ 2019-11-02
     // GBP/pack of 20 - 12.92 (based on 100s pack, Waitrose online) @ 2020-10-30
-    const pricePerPack = 12.92;
+    // GBP/pack of 20 - 13.25 (based on 100s pack, Sainsbury's online) @ 2021-10-29
+    const pricePerPack = 13.25;
     const packsPerWeek = 9;
     const moneySavedPerWeek = pricePerPack * packsPerWeek;
     const cashUnrounded = moneySavedPerWeek * elapsedWeeks;
