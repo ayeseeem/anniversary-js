@@ -6,7 +6,7 @@ Latest notes - slight guessing games.
 No Build step is needed.
 
 Installation requires Firebase.
-Last modified with the following tools:
+Last modified with the following tools -- ICM 2021-10-29:
 
 - `firebase --version`: 8.14.1
 - `node --version`: v14.15.0
