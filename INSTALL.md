@@ -34,13 +34,13 @@ used/succeeded with Git-Bash) using these commands:
 
 - Make sure Firebase is using the right project:
 
-```bash
+```console
 firebase projects:list
 ```
 
 - If it is, then deploy:
 
-```bash
+```console
 firebase deploy --debug
 ```
 
