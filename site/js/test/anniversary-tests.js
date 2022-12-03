@@ -125,12 +125,12 @@
     assert.ok(calculateSaving(1)[0] === '£');
   });
 
-  const packPrice = 13.25; // £
+  const packPrice = 14.05; // £
   const packsPerWeek = 9;
 
   QUnit.test('calculateSaving - one week default saving', function (assert) {
     assert.equal(calculateSaving(1), '£' + (packPrice * packsPerWeek));
-    assert.equal(calculateSaving(1), '£119.25');
+    assert.equal(calculateSaving(1), '£126.45');
   });
 
   const currency = AYESEEEM.currency.makeCurrency('£', 100);
@@ -138,7 +138,7 @@
   QUnit.test('calculateSaving - multiple weeks default saving', function (assert) {
     const pencePerWeek = (packPrice * 100 * packsPerWeek).toFixed(0);
     const p = pencePerWeek;
-    assert.equal(p, 11925);
+    assert.equal(p, 12645);
 
     assert.equal(calculateSaving(1), currency.format(p / 100));
     assert.equal(calculateSaving(2), currency.format(2 * p / 100));
