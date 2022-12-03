@@ -157,7 +157,7 @@ AYESEEEM = (function (module) {
       console.log('it\'s been ' + elapsedWeeks + 'weeks');
     }
 
-    const isMonthAnniversary = isMonthDiff(whenToCelebrate, timeToCelebrate);
+    const isMonthAnniversary = isMonthDiff(timeToCelebrate, whenToCelebrate);
     if (isMonthAnniversary) {
       if ((isMonthAnniversary <= 6) || (isMonthAnniversary % 3 === 0)) {
         // TODO: at some point, stop celebrating every month
