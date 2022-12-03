@@ -100,7 +100,8 @@ AYESEEEM = (function (module) {
     // GBP/pack of 20 - 12.00 (based on 100s pack, Waitrose online) @ 2019-11-02
     // GBP/pack of 20 - 12.92 (based on 100s pack, Waitrose online) @ 2020-10-30
     // GBP/pack of 20 - 13.25 (based on 100s pack, Sainsbury's online) @ 2021-10-29
-    const pricePerPack = 13.25;
+    // GBP/pack of 20 - 14.05 (based on 100s pack, Sainsbury's online) @ 2022-12-03
+    const pricePerPack = 14.05;
     const packsPerWeek = 9;
     const moneySavedPerWeek = pricePerPack * packsPerWeek;
     const cashUnrounded = moneySavedPerWeek * elapsedWeeks;
@@ -116,7 +117,7 @@ AYESEEEM = (function (module) {
     return Math.floor(dateDiffAsDays(dateDiff));
   }
 
-  // HACK: ICM 2015-05-29: Simple hack to get  days
+  // HACK: ICM 2015-05-29: Simple hack to get days
   // Expects a "Date" object created from the millis diff of 2 dates
   function dateDiffAsDays(dateDiff) {
     return dateDiff.getTime() / (24 * 60 * 60 * 1000);
