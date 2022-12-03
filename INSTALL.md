@@ -7,12 +7,12 @@ No Build step is needed.
 
 Installation requires Firebase.
 
--- ICM 2021-10-29: Latest recommendation when I ran firebase:
+-- ICM 2022-12-03: Latest recommendation when I ran firebase:
 
 ```console
    ╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
    │                                                                                                                     │
-   │                                          Update available 8.14.1 → 9.21.0                                           │
+   │                                          Update available 9.21.0 → 11.16.1                                          │
    │                    To update to the latest version using npm, run npm install -g firebase-tools                     │
    │   For other CLI management options, visit the CLI documentation (https://firebase.google.com/docs/cli#update-cli)   │
    │                                                                                                                     │
@@ -21,18 +21,18 @@ Installation requires Firebase.
    ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
 
-I successfully updated the Firebase CLI tools in a **Windows CMD** (non-Admin?)
+I successfully updated the Firebase CLI tools in a **Windows CMD** (non-Admin)
 console:
 
 ```console
 npm install -g firebase-tools
 ```
 
-Last deployed with the following tools -- ICM 2021-10-29:
+Last deployed with the following tools -- ICM 2022-12-03:
 
-- `firebase --version`: 9.21.0
-- `node --version`: v14.15.0
-- `npm --version`: 6.14.8
+- `firebase --version`: 11.16.1
+- `node --version`: v18.12.1
+- `npm --version`: 9.1.3
 
 I successfully deployed from a **Windows CMD** (non-Admin) console (previously
 used/succeeded with Git-Bash) using these commands:
