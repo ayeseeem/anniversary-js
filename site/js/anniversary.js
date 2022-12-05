@@ -96,18 +96,7 @@ AYESEEEM = (function (module) {
   }
 
   function calculateSaving(elapsedWeeks) {
-    // GBP/pack of 20 - 6.00 @ 2010-02-16
-    // GBP/pack of 20 - 8.80 @ 2014-10-18
-    // GBP/pack of 20 - 8.96 @ 2015-05-29
-    // GBP/pack of 20 - 9.23 (based on 100s pack) @ 2015-10-30
-    // GBP/pack of 20 - 9.72 (based on 100s pack) @ 2016-10-07
-    // GBP/pack of 20 - 10.33 (based on 100s pack) @ 2017-11-03
-    // GBP/pack of 20 - 11.33 (based on 100s pack, Tesco online) @ 2018-11-02
-    // GBP/pack of 20 - 12.00 (based on 100s pack, Waitrose online) @ 2019-11-02
-    // GBP/pack of 20 - 12.92 (based on 100s pack, Waitrose online) @ 2020-10-30
-    // GBP/pack of 20 - 13.25 (based on 100s pack, Sainsbury's online) @ 2021-10-29
-    // GBP/pack of 20 - 14.05 (based on 100s pack, Sainsbury's online) @ 2022-12-03
-    const pricePerPack = 14.05;
+    const pricePerPack = 14.05; // **IMPORTANT Update details.html when changed **
     const packsPerWeek = 9;
     const moneySavedPerWeek = pricePerPack * packsPerWeek;
     const cashUnrounded = moneySavedPerWeek * elapsedWeeks;

@@ -5,3 +5,11 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   padding: 40px;
 }
+
+table {
+  border-collapse: collapse;
+  border: 1px solid gray;
+  border-spacing: 2px;
+}
+table td { border: 1px solid gray; padding: 0.2em 0.8em; }
+table th { border: 1px solid gray; padding: 0.2em 0.8em; }
