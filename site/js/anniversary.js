@@ -13,12 +13,11 @@ AYESEEEM = (function (module) {
 
   /**
    * Celebrates multiples of powers of tens.
-   * e.g.
-   * <pre>
-   * if >= 10, < 100 days, celebrate 10, 20, 30
-   * if < 10 days, celebrate each day
-   * if >= 100, < 1000, celebrate 100, 200, 300
-   * </pre>
+   * For example:
+   * - if >= 10, < 100 days, celebrate 10, 20, 30
+   * - if < 10 days, celebrate each day
+   * - if >= 100, < 1000, celebrate 100, 200, 300
+   *
    * and similarly for greater powers.
    *
    * @param {type} n  the number to possibly celebrate
@@ -39,40 +38,47 @@ AYESEEEM = (function (module) {
    * Determines if the difference between two dates is a number of full months.
    *
    * It does this by comparing the day number. If they're the same, then it's
-   * a whole number of months, e.g. Jan 3rd and March 3rd => 2 months diff.
+   * a whole number of months, for example Jan 3rd and March 3rd => 2 months diff.
    *
    * Test spec 1:
-   * <pre>
+   * ```javascript
    * isMonthDiff(date(2009, 01, 13), date(2009, 03, 12)) => 0
    * isMonthDiff(date(2009, 01, 13), date(2009, 03, 13)) => 2
    * isMonthDiff(date(2009, 01, 13), date(2009, 03, 14)) => 0
-   * </pre>
+   * ```
+   *
    * This can go wrong when the day is > 28. If it's Jan 30, then there's no
    * day in Feb when it's a whole number of months later. But on Mar 30, it
    * IS 2 whole months. So for days > 28, this only applies sometimes.
    *
    * Test spec 2:
-   * <pre>
+   * ```javascript
    * isMonthDiff(date(2009, 01, 30), date(2009, 02, 28)) => 0
    * isMonthDiff(date(2009, 01, 30), date(2009, 03, 30)) => 2
-   * </pre>
+   * ```
+   *
    * Doesn't matter which date is earlier:
+   *
    * Test spec 3:
-   * <pre>
+   * ```javascript
    * isMonthDiff(date(2009, 03, 13), date(2009, 01, 12)) => 0
    * isMonthDiff(date(2009, 03, 13), date(2009, 01, 13)) => -2
    * isMonthDiff(date(2009, 03, 13), date(2009, 01, 14)) => 0
-   * </pre>
+   * ```
+   *
    * Duplicate dates is no diffence in months:
+   *
    * Test spec 4:
-   * <pre>
+   * ```javascript
    * isMonthDiff(date(2009, 03, 13), date(2009, 03, 13)) => 0
-   * </pre>
+   * ```
+   *
    * One month works:
+   *
    * Test spec 5:
-   * <pre>
+   * ```javascript
    * isMonthDiff(date(2009, 03, 13), date(2009, 04, 13)) => 1
-   * </pre>
+   * ```
    *
    * @param {type} date1
    * @param {type} date2
