@@ -149,7 +149,7 @@ AYESEEEM = (function (module) {
     }
 
     if ((elapsedDays % 7) === 0) {
-      console.log('it\'s been ' + elapsedWeeks + 'weeks');
+      console.log('it\'s been ' + elapsedWeeks + ' weeks');
     }
 
     const isMonthAnniversary = isMonthDiff(timeToCelebrate, whenToCelebrate);
