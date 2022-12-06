@@ -15,8 +15,21 @@
       const savingElement = document.getElementById('saving');
 
       function updateSaving() {
-        const saving = AYESEEEM.anniversary.celebrate(quitDate, new Date());
+        const result = AYESEEEM.anniversary.celebrate(quitDate, new Date());
+        const saving = result.saving;
         savingElement.innerHTML = saving;
+
+        console.log('Summary:');
+        result.summary.forEach(line => {
+          console.log(line);
+        });
+
+        console.log('you have saved ' + saving + ' in today\'s prices');
+
+        console.log('Celebrations:');
+        result.celebrations.forEach(line => {
+          console.log(line);
+        });
       }
 
       document.getElementById('jsWarning').style.display = 'none';

@@ -102,7 +102,6 @@ AYESEEEM = (function (module) {
     const cashUnrounded = moneySavedPerWeek * elapsedWeeks;
     const currency = AYESEEEM.currency.makeCurrency('£', 100);
     const saving = currency.format(cashUnrounded);
-    console.log('you have saved ' + saving + ' in today\'s prices');
     return saving;
   }
 
@@ -131,25 +130,24 @@ AYESEEEM = (function (module) {
 
     const elapsed = new Date(whenToCelebrate.getTime() - timeToCelebrate.getTime());
 
-    console.log('Summary:');
-    console.log('it\'s been ' + elapsed);
+    const summary = [];
+    summary.push('it\'s been ' + elapsed);
 
     const elapsedDays = dateDiffAsWholeDays(elapsed);
-    console.log('it\'s been ' + elapsedDays + ' days');
+    summary.push('it\'s been ' + elapsedDays + ' days');
 
     const elapsedWeeks = dateDiffAsWeeks(elapsed);
-    console.log('it\'s been ' + Math.floor(elapsedWeeks) + ' weeks, ' + (elapsedDays % 7) + ' days');
+    summary.push('it\'s been ' + Math.floor(elapsedWeeks) + ' weeks, ' + (elapsedDays % 7) + ' days');
 
     const saving = calculateSaving(elapsedWeeks);
 
-    console.log('Celebrations:');
-
+    const celebrations = [];
     if (isCelebratableNumber(elapsedDays)) {
-      console.log('it\'s been ' + elapsedDays + ' days');
+      celebrations.push('it\'s been ' + elapsedDays + ' days');
     }
 
     if ((elapsedDays % 7) === 0) {
-      console.log('it\'s been ' + elapsedWeeks + ' weeks');
+      celebrations.push('it\'s been ' + elapsedWeeks + ' weeks');
     }
 
     const isMonthAnniversary = isMonthDiff(timeToCelebrate, whenToCelebrate);
@@ -158,16 +156,15 @@ AYESEEEM = (function (module) {
         // TODO: at some point, stop celebrating every month
         // and start going up in, say, 3s.
         // TODO: when m > 12, start saying "N Years {M months}"
-        console.log('It\'s been ' + isMonthAnniversary + ' months');
+        celebrations.push('It\'s been ' + isMonthAnniversary + ' months');
       }
     }
 
     // HACK: ICM 2016-04-30: a bit of a hack to get out the info for web page. Needs cleaning up
-    return saving;
+    return { saving: saving, summary: summary, celebrations: celebrations };
   }
 
   const myQuitDate = new Date(Date.parse('2009-11-03T08:30'));
-  celebrate(myQuitDate, new Date());
 
   // Module 'anniversary'
   module.anniversary = {
