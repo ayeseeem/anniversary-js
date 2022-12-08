@@ -117,7 +117,7 @@ AYESEEEM = (function (module) {
     return dateDiff.getTime() / (24 * 60 * 60 * 1000);
   }
 
-  // HACK: ICM 2016-04-30: Simple hack to get whole weeks
+  // HACK: ICM 2016-04-30: Simple hack to get weeks
   // Expects a "Date" object created from the millis diff of 2 dates
   function dateDiffAsWeeks(dateDiff) {
     return dateDiffAsDays(dateDiff) / 7.0;
