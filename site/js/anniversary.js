@@ -11,6 +11,10 @@ var AYESEEEM;
 AYESEEEM = (function (module) {
   'use strict';
 
+  const myQuitDate = new Date(Date.parse('2009-11-03T08:30'));
+  const packsPerWeek = 9;
+  const pricePerPack = 14.05; // **IMPORTANT Update details.html when changed **
+  const currency = AYESEEEM.currency.makeCurrency('£', 100);
   /**
    * Celebrates multiples of powers of tens.
    * For example:
@@ -95,15 +99,17 @@ AYESEEEM = (function (module) {
     return 0;
   }
 
-  function calculateSaving(elapsedWeeks) {
-    const pricePerPack = 14.05; // **IMPORTANT Update details.html when changed **
-    const packsPerWeek = 9;
-    const moneySavedPerWeek = pricePerPack * packsPerWeek;
-    const cashUnrounded = moneySavedPerWeek * elapsedWeeks;
-    const currency = AYESEEEM.currency.makeCurrency('£', 100);
-    const saving = currency.format(cashUnrounded);
-    return saving;
+  function savingsCalculator(packsPerWeek, pricePerPack, currency) {
+    function calculateSaving(elapsedWeeks) {
+      const moneySavedPerWeek = pricePerPack * packsPerWeek;
+      const cashUnrounded = moneySavedPerWeek * elapsedWeeks;
+      const saving = currency.format(cashUnrounded);
+      return saving;
+    }
+    return calculateSaving;
   }
+
+  const calculateSaving = savingsCalculator(packsPerWeek, pricePerPack, currency);
 
   // HACK: ICM 2015-05-29: Simple hack to get whole days
   // Expects a "Date" object created from the millis diff of 2 dates
@@ -163,8 +169,6 @@ AYESEEEM = (function (module) {
     // HACK: ICM 2016-04-30: a bit of a hack to get out the info for web page. Needs cleaning up
     return { saving: saving, summary: summary, celebrations: celebrations };
   }
-
-  const myQuitDate = new Date(Date.parse('2009-11-03T08:30'));
 
   // Module 'anniversary'
   module.anniversary = {
