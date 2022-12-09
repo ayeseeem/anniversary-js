@@ -70,7 +70,7 @@ AYESEEEM = (function (module) {
    * isMonthDiff(date(2009, 03, 13), date(2009, 01, 14)) => 0
    * ```
    *
-   * Duplicate dates is no diffence in months:
+   * Duplicate dates is no difference in months:
    *
    * Test spec 4:
    * ```javascript
