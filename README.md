@@ -1,4 +1,4 @@
-`anniversary.js`
+`anniversary-js`
 ================
 
 TODO
@@ -11,4 +11,3 @@ TODO
   - price 12.01 -> `£108.09`
   - Done: it was the test that was failing to construct expected result
     correctly, not the code
-
