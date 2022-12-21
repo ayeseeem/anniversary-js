@@ -6,6 +6,8 @@
   <title>anniversary - Details</title>
 
   <link rel="stylesheet" href="css/anniversary.css" type="text/css"/>
+  <script src="js/table.js"></script>
+
   <script src="lib/chart/chart.js"></script>
   <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js@4.1.1"></script> -->
   <script src="lib/chart/chartjs-adapter-date-fns.bundle.min.js"></script>
@@ -38,43 +40,6 @@
   <p><small>Used to calculate <a href="./index.html">savings</a>.</small></p>
   <p><small><a href="./test.html">Tests</a>.</small></p>
 
-  <script>
-    const headerRowsCount = 1;
-    const oTable = document.getElementById('data');
-
-    const rowLength = oTable.rows.length;
-
-    // TODO: ICM 2022-12-19: Extract column headers from table
-    const priceColumnIndex = 2;
-    const dateColumnIndex = 3;
-
-    const points = [];
-    for (var i = 0 + headerRowsCount; i < rowLength; i++){
-
-      // gets cells of current row
-      var oCells = oTable.rows.item(i).cells;
-
-      // gets amount of cells of current row
-      var cellLength = oCells.length;
-
-      const point = {};
-      // loops through each cell in current row
-      for (var j = 0; j < cellLength; j++){
-        const cellVal = oCells.item(j).innerHTML;
-
-        if (j == priceColumnIndex) {
-          point['price'] = cellVal;
-        }
-
-        if (j == dateColumnIndex) {
-          point['date'] = cellVal;
-        }
-      }
-      points.push(point);
-    }
-    console.log(points);
-  </script>
-
   <div>
     <canvas id="myScatterChart"></canvas>
   </div>
@@ -91,6 +56,10 @@
 
       return points.map(p => ({ x: x_converter(p[x_prop]), y: y_converter(p[y_prop]) }));
     }
+
+    const oTable = document.getElementById('data');
+    const points = AYESEEEM.table.getData(oTable);
+    console.log(points);
 
     const price_data = to_data(points, 'date', 'price');
     console.log(price_data);
