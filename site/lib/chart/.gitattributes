@@ -1,0 +1,2 @@
+# Maintain distributed .JS file endings as Unix, to make diff/update easier.
+*.js text eol=lf
