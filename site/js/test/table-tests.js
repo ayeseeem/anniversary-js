@@ -33,7 +33,7 @@
     assert.deepEqual(getData(testTable, 1), [
       { 'date': '2010-02-16', 'price': '6.00' },
       { 'date': '2014-10-18', 'price': '8.80' },
-      { 'date': '2015-05-29', 'price': '8.96'}
+      { 'date': '2015-05-29', 'price': '8.96' }
     ]);
   });
 
@@ -55,11 +55,11 @@
 
     assert.deepEqual(getData(testTable, 2), [
       { 'date': '2014-10-18', 'price': '8.80' },
-      { 'date': '2015-05-29', 'price': '8.96'}
+      { 'date': '2015-05-29', 'price': '8.96' }
     ]);
 
     assert.deepEqual(getData(testTable, 3), [
-      { 'date': '2015-05-29', 'price': '8.96'}
+      { 'date': '2015-05-29', 'price': '8.96' }
     ]);
   });
 
@@ -128,7 +128,7 @@
       { 'date': 'Date',       'price': 'Price' },
       { 'date': '2010-02-16', 'price': '6.00' },
       { 'date': '2014-10-18', 'price': '8.80' },
-      { 'date': '2015-05-29', 'price': '8.96'}
+      { 'date': '2015-05-29', 'price': '8.96' }
     ]);
   });
 
