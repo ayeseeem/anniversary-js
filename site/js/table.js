@@ -41,8 +41,41 @@ AYESEEEM = (function (module) {
     return points;
   }
 
+  /**
+   * A "dumber" version that just reads (all) the data. Let others process it
+   * later.
+   *
+   * @param {*} oTable table DOM element
+   * @returns all the `innerHTML` of the cells, in an array of arrays
+   */
+  function getAllData(oTable) {
+    // TODO: ICM 2022-12-22: Verify it's a table element
+    const rowLength = oTable.rows.length;
+
+    const points = [];
+    for (var i = 0; i < rowLength; i++) {
+
+      // gets cells of current row
+      var oCells = oTable.rows.item(i).cells;
+
+      // gets amount of cells of current row
+      var cellLength = oCells.length;
+
+      const point = [];
+      // loops through each cell in current row
+      for (var j = 0; j < cellLength; j++){
+        const cellVal = oCells.item(j).innerHTML;
+        point.push(cellVal);
+      }
+      points.push(point);
+    }
+
+    return points;
+  }
+
   module.table = {
-    getData: getData
+    getData: getData,
+    getAllData: getAllData
   };
 
   return module;

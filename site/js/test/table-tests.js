@@ -133,4 +133,32 @@
     ]);
   });
 
+  QUnit.module('Table getAllData()');
+
+  const getAllData = table.getAllData;
+
+  QUnit.test('read all table works', function (assert) {
+    document.getElementById('qunit-fixture').innerHTML = `
+    <table id="test-table">
+      <thead>
+        <tr><th>C1 Head</th><th>C2 Head</th><th>C3 Head</th><th>C4 Head</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>R1 C1</td><td>R1 C2</td><td>R1 C3</td><td>R1 C4</td></tr>
+        <tr><td>R2 C1</td><td>R2 C2</td><td>R2 C3</td><td>R2 C4</td></tr>
+        <tr><td>R3 C1</td><td>R3 C2</td><td>R3 C3</td><td>R3 C4</td></tr>
+      </tbody>
+    </table>
+    `;
+
+    const testTable = document.getElementById('test-table');
+
+    assert.deepEqual(getAllData(testTable), [
+      [ 'C1 Head', 'C2 Head', 'C3 Head', 'C4 Head' ],
+      [ 'R1 C1', 'R1 C2', 'R1 C3', 'R1 C4' ],
+      [ 'R2 C1', 'R2 C2', 'R2 C3', 'R2 C4' ],
+      [ 'R3 C1', 'R3 C2', 'R3 C3', 'R3 C4' ],
+    ]);
+  });
+
 }());
