@@ -14,7 +14,7 @@ AYESEEEM = (function (module) {
     const dateColumnIndex = 3;
 
     const points = [];
-    for (var i = 0 + headerRowsCount; i < rowLength; i++){
+    for (var i = 0 + headerRowsCount; i < rowLength; i++) {
 
       // gets cells of current row
       var oCells = oTable.rows.item(i).cells;
