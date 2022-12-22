@@ -6,9 +6,7 @@ var AYESEEEM;
 AYESEEEM = (function (module) {
   'use strict';
 
-  function getData(oTable) {
-    const headerRowsCount = 1;
-
+  function getData(oTable, headerRowsCount) {
     const rowLength = oTable.rows.length;
 
     // TODO: ICM 2022-12-19: Extract column headers from table
