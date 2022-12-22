@@ -4,7 +4,6 @@
   'use strict';
 
   const table = AYESEEEM.table;
-  const getData = table.getData;
 
   QUnit.module('Table Module');
 
@@ -13,6 +12,8 @@
   });
 
   QUnit.module('Table getData()');
+
+  const getData = table.getData;
 
   QUnit.test('basic table read works', function (assert) {
     document.getElementById('qunit-fixture').innerHTML = `
