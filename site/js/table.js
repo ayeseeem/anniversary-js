@@ -14,12 +14,12 @@ AYESEEEM = (function (module) {
     const points = [];
     const rowCount = table.rows.length;
     for (var i = 0 + headerRowsCount; i < rowCount; i++) {
-      var oCells = table.rows.item(i).cells;
+      var cells = table.rows.item(i).cells;
 
       const point = {};
-      var cellCount = oCells.length;
+      var cellCount = cells.length;
       for (var j = 0; j < cellCount; j++){
-        const cellVal = oCells.item(j).innerHTML;
+        const cellVal = cells.item(j).innerHTML;
 
         if (j === priceColumnIndex) {
           point['price'] = cellVal;
@@ -47,12 +47,12 @@ AYESEEEM = (function (module) {
     const points = [];
     const rowCount = table.rows.length;
     for (var i = 0; i < rowCount; i++) {
-      var oCells = table.rows.item(i).cells;
+      var cells = table.rows.item(i).cells;
 
       const point = [];
-      var cellCount = oCells.length;
+      var cellCount = cells.length;
       for (var j = 0; j < cellCount; j++){
-        const cellVal = oCells.item(j).innerHTML;
+        const cellVal = cells.item(j).innerHTML;
         point.push(cellVal);
       }
       points.push(point);
