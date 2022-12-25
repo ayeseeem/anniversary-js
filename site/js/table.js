@@ -7,13 +7,12 @@ AYESEEEM = (function (module) {
   'use strict';
 
   function getData(oTable, headerRowsCount) {
-    const rowCount = oTable.rows.length;
-
     // TODO: ICM 2022-12-19: Extract column headers from table
     const priceColumnIndex = 2;
     const dateColumnIndex = 3;
 
     const points = [];
+    const rowCount = oTable.rows.length;
     for (var i = 0 + headerRowsCount; i < rowCount; i++) {
 
       // gets cells of current row
@@ -50,9 +49,8 @@ AYESEEEM = (function (module) {
    */
   function getAllData(oTable) {
     // TODO: ICM 2022-12-22: Verify it's a table element
-    const rowCount = oTable.rows.length;
-
     const points = [];
+    const rowCount = oTable.rows.length;
     for (var i = 0; i < rowCount; i++) {
 
       // gets cells of current row
