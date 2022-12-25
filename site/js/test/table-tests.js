@@ -153,7 +153,7 @@
 
     const testTable = document.getElementById('test-table');
 
-    assert.deepEqual(getDataGrid(testTable, 1), [
+    assert.deepEqual(getDataGrid(testTable, 1, [2, 3]), [
       [ '6.00', '2010-02-16' ],
       [ '8.80', '2014-10-18' ],
       [ '8.96', '2015-05-29' ]
@@ -176,12 +176,12 @@
 
     const testTable = document.getElementById('test-table');
 
-    assert.deepEqual(getDataGrid(testTable, 2), [
+    assert.deepEqual(getDataGrid(testTable, 2, [2, 3]), [
       [ '8.80', '2014-10-18' ],
       [ '8.96', '2015-05-29' ]
     ]);
 
-    assert.deepEqual(getDataGrid(testTable, 3), [
+    assert.deepEqual(getDataGrid(testTable, 3, [2, 3]), [
       [ '8.96', '2015-05-29' ]
     ]);
   });
@@ -203,7 +203,7 @@
     const testTable = document.getElementById('test-table');
 
     assert.equal(testTable.rows.length, 4);
-    assert.deepEqual(getDataGrid(testTable, 4), [
+    assert.deepEqual(getDataGrid(testTable, 4, [2, 3]), [
     ]);
   });
 
@@ -224,7 +224,7 @@
     const testTable = document.getElementById('test-table');
 
     assert.equal(testTable.rows.length, 4);
-    assert.deepEqual(getDataGrid(testTable, 5), [
+    assert.deepEqual(getDataGrid(testTable, 5, [2, 3]), [
     ]);
   });
 
@@ -244,10 +244,10 @@
 
     const testTable = document.getElementById('test-table');
 
-    assert.deepEqual(getDataGrid(testTable, 0)[0],
+    assert.deepEqual(getDataGrid(testTable, 0, [2, 3])[0],
       [ 'Price', 'Date' ]
     );
-    assert.deepEqual(getDataGrid(testTable, 0), [
+    assert.deepEqual(getDataGrid(testTable, 0, [2, 3]), [
       [ 'Price', 'Date'       ],
       [ '6.00',  '2010-02-16' ],
       [ '8.80',  '2014-10-18' ],
@@ -256,7 +256,7 @@
   });
 
   // @Characterization
-  QUnit.test('Gets data in original table order', function (assert) {
+  QUnit.test('Gets data in original table order, not requested column order', function (assert) {
     document.getElementById('qunit-fixture').innerHTML = `
     <table id="test-table">
       <thead>
@@ -271,7 +271,8 @@
     `;
 
     const testTable = document.getElementById('test-table');
-    assert.deepEqual(getDataGrid(testTable, 0), [
+    // **Note** we are asking for column 4 first, but get column 3:
+    assert.deepEqual(getDataGrid(testTable, 0, [3, 2]), [
       [ 'C3 Head', 'C4 Head' ],
       [ 'R1 C3', 'R1 C4' ],
       [ 'R2 C3', 'R2 C4' ],
