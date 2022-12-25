@@ -7,14 +7,14 @@ AYESEEEM = (function (module) {
   'use strict';
 
   function getData(oTable, headerRowsCount) {
-    const rowLength = oTable.rows.length;
+    const rowCount = oTable.rows.length;
 
     // TODO: ICM 2022-12-19: Extract column headers from table
     const priceColumnIndex = 2;
     const dateColumnIndex = 3;
 
     const points = [];
-    for (var i = 0 + headerRowsCount; i < rowLength; i++) {
+    for (var i = 0 + headerRowsCount; i < rowCount; i++) {
 
       // gets cells of current row
       var oCells = oTable.rows.item(i).cells;
@@ -50,10 +50,10 @@ AYESEEEM = (function (module) {
    */
   function getAllData(oTable) {
     // TODO: ICM 2022-12-22: Verify it's a table element
-    const rowLength = oTable.rows.length;
+    const rowCount = oTable.rows.length;
 
     const points = [];
-    for (var i = 0; i < rowLength; i++) {
+    for (var i = 0; i < rowCount; i++) {
 
       // gets cells of current row
       var oCells = oTable.rows.item(i).cells;
