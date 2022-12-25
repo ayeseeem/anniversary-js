@@ -14,12 +14,10 @@ AYESEEEM = (function (module) {
     const points = [];
     const rowCount = oTable.rows.length;
     for (var i = 0 + headerRowsCount; i < rowCount; i++) {
-
       var oCells = oTable.rows.item(i).cells;
-      var cellCount = oCells.length;
 
       const point = {};
-      // loops through each cell in current row
+      var cellCount = oCells.length;
       for (var j = 0; j < cellCount; j++){
         const cellVal = oCells.item(j).innerHTML;
 
@@ -49,12 +47,10 @@ AYESEEEM = (function (module) {
     const points = [];
     const rowCount = oTable.rows.length;
     for (var i = 0; i < rowCount; i++) {
-
       var oCells = oTable.rows.item(i).cells;
-      var cellCount = oCells.length;
 
       const point = [];
-      // loops through each cell in current row
+      var cellCount = oCells.length;
       for (var j = 0; j < cellCount; j++){
         const cellVal = oCells.item(j).innerHTML;
         point.push(cellVal);
