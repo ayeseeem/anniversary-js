@@ -14,10 +14,10 @@ AYESEEEM = (function (module) {
     const points = [];
     const rowCount = table.rows.length;
     for (var i = 0 + headerRowsCount; i < rowCount; i++) {
-      var cells = table.rows.item(i).cells;
+      const cells = table.rows.item(i).cells;
 
       const point = {};
-      var cellCount = cells.length;
+      const cellCount = cells.length;
       for (var j = 0; j < cellCount; j++){
         const cellVal = cells.item(j).innerHTML;
 
@@ -47,10 +47,10 @@ AYESEEEM = (function (module) {
     const points = [];
     const rowCount = table.rows.length;
     for (var i = 0; i < rowCount; i++) {
-      var cells = table.rows.item(i).cells;
+      const cells = table.rows.item(i).cells;
 
       const point = [];
-      var cellCount = cells.length;
+      const cellCount = cells.length;
       for (var j = 0; j < cellCount; j++){
         const cellVal = cells.item(j).innerHTML;
         point.push(cellVal);
