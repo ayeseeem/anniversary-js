@@ -45,7 +45,7 @@
   </div>
 
   <script>
-    function to_data(points, x_prop, y_prop) {
+    function toData(points, x_prop, y_prop) {
       const x_converter = function (raw) {
         return new Date(raw.trim());
       }
@@ -61,7 +61,7 @@
     const points = AYESEEEM.table.getData(oTable, 1);
     console.log(points);
 
-    const price_data = to_data(points, 'date', 'price');
+    const price_data = toData(points, 'date', 'price');
     console.log(price_data);
 
     const data = {
