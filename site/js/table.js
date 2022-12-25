@@ -15,15 +15,12 @@ AYESEEEM = (function (module) {
     const rowCount = oTable.rows.length;
     for (var i = 0 + headerRowsCount; i < rowCount; i++) {
 
-      // gets cells of current row
       var oCells = oTable.rows.item(i).cells;
-
-      // gets amount of cells of current row
-      var cellLength = oCells.length;
+      var cellCount = oCells.length;
 
       const point = {};
       // loops through each cell in current row
-      for (var j = 0; j < cellLength; j++){
+      for (var j = 0; j < cellCount; j++){
         const cellVal = oCells.item(j).innerHTML;
 
         if (j === priceColumnIndex) {
@@ -53,15 +50,12 @@ AYESEEEM = (function (module) {
     const rowCount = oTable.rows.length;
     for (var i = 0; i < rowCount; i++) {
 
-      // gets cells of current row
       var oCells = oTable.rows.item(i).cells;
-
-      // gets amount of cells of current row
-      var cellLength = oCells.length;
+      var cellCount = oCells.length;
 
       const point = [];
       // loops through each cell in current row
-      for (var j = 0; j < cellLength; j++){
+      for (var j = 0; j < cellCount; j++){
         const cellVal = oCells.item(j).innerHTML;
         point.push(cellVal);
       }
