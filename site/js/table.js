@@ -27,11 +27,11 @@ AYESEEEM = (function (module) {
       for (var j = 0; j < cellLength; j++){
         const cellVal = oCells.item(j).innerHTML;
 
-        if (j == priceColumnIndex) {
+        if (j === priceColumnIndex) {
           point['price'] = cellVal;
         }
 
-        if (j == dateColumnIndex) {
+        if (j === dateColumnIndex) {
           point['date'] = cellVal;
         }
       }
