@@ -6,15 +6,15 @@ var AYESEEEM;
 AYESEEEM = (function (module) {
   'use strict';
 
-  function getData(oTable, headerRowsCount) {
+  function getData(table, headerRowsCount) {
     // TODO: ICM 2022-12-19: Extract column headers from table
     const priceColumnIndex = 2;
     const dateColumnIndex = 3;
 
     const points = [];
-    const rowCount = oTable.rows.length;
+    const rowCount = table.rows.length;
     for (var i = 0 + headerRowsCount; i < rowCount; i++) {
-      var oCells = oTable.rows.item(i).cells;
+      var oCells = table.rows.item(i).cells;
 
       const point = {};
       var cellCount = oCells.length;
@@ -39,15 +39,15 @@ AYESEEEM = (function (module) {
    * A "dumber" version that just reads (all) the data. Let others process it
    * later.
    *
-   * @param {*} oTable table DOM element
+   * @param {*} table table DOM element
    * @returns all the `innerHTML` of the cells, in an array of arrays
    */
-  function getAllData(oTable) {
+  function getAllData(table) {
     // TODO: ICM 2022-12-22: Verify it's a table element
     const points = [];
-    const rowCount = oTable.rows.length;
+    const rowCount = table.rows.length;
     for (var i = 0; i < rowCount; i++) {
-      var oCells = oTable.rows.item(i).cells;
+      var oCells = table.rows.item(i).cells;
 
       const point = [];
       var cellCount = oCells.length;
