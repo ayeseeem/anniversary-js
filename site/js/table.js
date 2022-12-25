@@ -48,10 +48,7 @@ AYESEEEM = (function (module) {
    * @param {Integer} headerRowsCount number of header rows
    * @returns an array of arrays
    */
-  function getDataGrid(table, headerRowsCount) {
-    const priceColumnIndex = 2;
-    const dateColumnIndex = 3;
-
+  function getDataGrid(table, headerRowsCount, columnIndexes) {
     const points = [];
     const rowCount = table.rows.length;
     for (var i = 0 + headerRowsCount; i < rowCount; i++) {
@@ -61,12 +58,7 @@ AYESEEEM = (function (module) {
       const cellCount = cells.length;
       for (var j = 0; j < cellCount; j++){
         const cellVal = cells.item(j).innerHTML;
-
-        if (j === priceColumnIndex) {
-          point.push(cellVal);
-        }
-
-        if (j === dateColumnIndex) {
+        if (columnIndexes.indexOf(j) >= 0) {
           point.push(cellVal);
         }
       }
