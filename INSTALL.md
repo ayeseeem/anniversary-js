@@ -1,24 +1,23 @@
 Build and Install
 =================
 
-Latest notes - slight guessing games.
-
 No Build step is needed.
 
 Installation requires Firebase.
 
--- ICM 2022-12-03: Latest recommendation when I ran firebase:
+-- ICM 2023-11-28: Latest recommendation when I ran firebase:
 
 ```console
-   ╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-   │                                                                                                                     │
-   │                                          Update available 9.21.0 → 11.16.1                                          │
-   │                    To update to the latest version using npm, run npm install -g firebase-tools                     │
-   │   For other CLI management options, visit the CLI documentation (https://firebase.google.com/docs/cli#update-cli)   │
-   │                                                                                                                     │
-   │                                                                                                                     │
-   │                                                                                                                     │
-   ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+  ╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
+  │                                                                                                                     │
+  │                                         Update available 11.16.1 → 11.19.0                                          │
+  │                                   To update to the latest version using npm, run                                    │
+  │                                            npm install -g firebase-tools                                            │
+  │   For other CLI management options, visit the CLI documentation (https://firebase.google.com/docs/cli#update-cli)   │
+  │                                                                                                                     │
+  │                                                                                                                     │
+  │                                                                                                                     │
+  ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
 
 I successfully updated the Firebase CLI tools in a **Windows CMD** (non-Admin)
@@ -28,11 +27,11 @@ console:
 npm install -g firebase-tools
 ```
 
-Last deployed with the following tools -- ICM 2022-12-03:
+Last deployed with the following tools -- ICM 2023-11-28:
 
-- `firebase --version`: 11.16.1
-- `node --version`: v18.12.1
-- `npm --version`: 9.1.3
+- `firebase --version`: 12.7.0
+- `node --version`: v20.9.0
+- `npm --version`: 10.2.1
 
 I successfully deployed from a **Windows CMD** (non-Admin) console (previously
 used/succeeded with Git-Bash) using these commands:
