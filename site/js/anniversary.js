@@ -13,7 +13,7 @@ AYESEEEM = (function (module) {
 
   const myQuitDate = new Date(Date.parse('2009-11-03T08:30'));
   const packsPerWeek = 9;
-  const pricePerPack = 14.05; // **IMPORTANT Update details.html when changed **
+  const pricePerPack = 15.95; // **IMPORTANT Update details.html when changed **
   const currency = AYESEEEM.currency.makeCurrency('£', 100);
   /**
    * Celebrates multiples of powers of tens.

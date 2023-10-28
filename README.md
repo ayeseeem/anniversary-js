@@ -4,6 +4,7 @@
 TODO
 ----
 
+- [ ] Extract latest price from `details/html` table.
 - [x] Fix: formatting: breaks if pack price ends ".00",
   zeros are not output.
   For example, one week default saving:
