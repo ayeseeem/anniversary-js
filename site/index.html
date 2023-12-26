@@ -19,9 +19,11 @@
         const saving = result.saving;
         savingElement.innerHTML = saving;
 
-        console.log('Summary:');
+        const summaryList = document.getElementById('summary');
+        summaryList.innerHTML = '';
         result.summary.forEach(line => {
-          console.log(line);
+          const li = summaryList.appendChild(document.createElement('li'));
+          li.textContent = line;
         });
 
         console.log('you have saved ' + saving + ' in today\'s prices');
@@ -58,6 +60,13 @@
       <a href="https://github.com/ayeseeem/anniversary-js">the source</a>.
     </p>
   <ol id="celebrations">
+  </ol>
+
+  <h2>Summary</h2>
+    <p>Another (broken) Work In Progress - see
+      <a href="https://github.com/ayeseeem/anniversary-js">the source</a>.
+    </p>
+  <ol id="summary">
   </ol>
 
   <h2><a href="https://en.wikipedia.org/wiki/Behind-the-scenes">BTS</a></h2>
