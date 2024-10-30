@@ -13,7 +13,8 @@ AYESEEEM = (function (module) {
 
   const myQuitDate = new Date(Date.parse('2009-11-03T08:30'));
   const packsPerWeek = 9;
-  const pricePerPack = 15.95; // **IMPORTANT Update details.html when changed **
+  // TODO: ICM 2024-10-30: Extract from `details.html`
+  const pricePerPack = 17.55; // **IMPORTANT Update details.html when changed**
   const currency = AYESEEEM.currency.makeCurrency('£', 100);
   /**
    * Celebrates multiples of powers of tens.
