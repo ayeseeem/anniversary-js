@@ -15,8 +15,8 @@ I originally wrote this [in Python](https://github.com/ayeseeem/anniversary-py)
 as a way to help me give up smoking.
 
 It used to try to track how much I'd saved, and I tried to make it let me
-"celebrate" something most days: "it's been 10 days", "it's been two weeks",
-"it's been a month", and so on, so there was always a little milestone or
+"celebrate" something most days: "It's been 10 days", "It's been two weeks",
+"It's been a month", and so on, so there was always a little milestone or
 achievement.
 
 It used to be a console program, so it printed the celebration.
