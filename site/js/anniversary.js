@@ -132,29 +132,29 @@ AYESEEEM = (function (module) {
 
   function celebrate(timeToCelebrate, whenToCelebrate) {
 
-    console.log('let\'s celebrate ' + timeToCelebrate.toDateString() +
+    console.log('Let\'s celebrate ' + timeToCelebrate.toDateString() +
         ' on ' + whenToCelebrate.toDateString() + ' at ' + whenToCelebrate.toTimeString());
 
     const elapsed = new Date(whenToCelebrate.getTime() - timeToCelebrate.getTime());
 
     const summary = [];
-    summary.push('it\'s been ' + elapsed);
+    summary.push('It\'s been ' + elapsed);
 
     const elapsedDays = dateDiffAsWholeDays(elapsed);
-    summary.push('it\'s been ' + elapsedDays + ' days');
+    summary.push('It\'s been ' + elapsedDays + ' days');
 
     const elapsedWeeks = dateDiffAsWeeks(elapsed);
-    summary.push('it\'s been ' + Math.floor(elapsedWeeks) + ' weeks, ' + (elapsedDays % 7) + ' days');
+    summary.push('It\'s been ' + Math.floor(elapsedWeeks) + ' weeks, ' + (elapsedDays % 7) + ' days');
 
     const saving = calculateSaving(elapsedWeeks);
 
     const celebrations = [];
     if (isCelebratableNumber(elapsedDays)) {
-      celebrations.push('it\'s been ' + elapsedDays + ' days');
+      celebrations.push('It\'s been ' + elapsedDays + ' days');
     }
 
     if ((elapsedDays % 7) === 0) {
-      celebrations.push('it\'s been ' + elapsedWeeks + ' weeks');
+      celebrations.push('It\'s been ' + elapsedWeeks + ' weeks');
     }
 
     const isMonthAnniversary = isMonthDiff(timeToCelebrate, whenToCelebrate);
