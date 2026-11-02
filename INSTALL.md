@@ -5,19 +5,19 @@ No Build step is needed.
 
 Installation requires Firebase.
 
--- ICM 2025-11-01: Latest recommendation when I ran firebase:
+-- ICM 2026-11-02: Latest recommendation when I ran firebase:
 
 ```console
-╭───────────────────────────────────────────────────────────────────╮
-│                                                                   │
-│                Update available 13.23.0 → 14.23.0                 │
-│          To update to the latest version using npm, run           │
-│                   npm install -g firebase-tools                   │
-│   For other CLI management options, visit the CLI documentation   │
-│                                                                   │
-│                                                                   │
-│                                                                   │
-╰───────────────────────────────────────────────────────────────────╯
+   ╭───────────────────────────────────────────────────────────────────╮
+   │                                                                   │
+   │                Update available 14.23.0 → 15.34.2                 │
+   │          To update to the latest version using npm, run           │
+   │                   npm install -g firebase-tools                   │
+   │   For other CLI management options, visit the CLI documentation   │
+   │                                                                   │
+   │                                                                   │
+   │                                                                   │
+   ╰───────────────────────────────────────────────────────────────────╯
 ```
 
 I successfully updated the Firebase CLI tools in a **Windows CMD** (non-Admin)
@@ -27,11 +27,11 @@ console:
 npm install -g firebase-tools
 ```
 
-Last deployed with the following tools -- ICM 2025-11-01:
+Last deployed with the following tools -- ICM 2026-11-02:
 
-- `firebase --version`: 14.23.0
-- `node --version`: v24.11.0
-- `npm --version`: 11.6.1
+- `firebase --version`: 15.34.2
+- `node --version`: v26.13.0
+- `npm --version`: 11.20.0
 
 I successfully deployed from a **Windows CMD** (non-Admin) console (previously
 used/succeeded with Git-Bash) using these commands:
