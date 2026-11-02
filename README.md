@@ -9,7 +9,12 @@ Two "features" to keep you going:
 - Track how much you've saved.
 
 You can see this working live at
-<https://anniversary.firebaseapp.com/index.html>.
+
+<https://anniversary.web.app/index.html>.
+
+(when this app was first created using Firebase, the URL was
+<https://anniversary.firebaseapp.com/index.html>,
+and this was still working at 2026-11-02.)
 
 I originally wrote this [in Python](https://github.com/ayeseeem/anniversary-py)
 as a way to help me give up smoking.
